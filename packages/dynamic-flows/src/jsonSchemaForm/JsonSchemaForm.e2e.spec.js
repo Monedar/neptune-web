@@ -148,8 +148,16 @@ describe('E2E: Given a component for rendering a JSON schema form', () => {
       component.find('input[type="text"]').simulate('change', { target: { value: 'x' } });
     });
 
-    it('should remove the value from the model', () => {
-      expect(onChange).toHaveBeenCalledWith({ const: 'abcd' }, true, stringSchema);
+    it('should NOT remove the value from the model', () => {
+      expect(onChange).toHaveBeenLastCalledWith(
+        { const: 'abcd', string: 'x' },
+        false,
+        stringSchema,
+      );
+    });
+
+    it('should call onChange with valid = false', () => {
+      expect(onChange.mock.calls[onChange.mock.calls.length - 1][1]).toBe(false);
     });
 
     describe('and then to something else invalid', () => {
@@ -157,8 +165,8 @@ describe('E2E: Given a component for rendering a JSON schema form', () => {
         component.find('input[type="text"]').simulate('change', { target: { value: 'y' } });
       });
 
-      it('should not call onChange again', () => {
-        expect(onChange).toHaveBeenCalledTimes(2);
+      it('should call onChange again', () => {
+        expect(onChange).toHaveBeenCalledTimes(3);
       });
     });
 

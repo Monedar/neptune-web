@@ -73,6 +73,7 @@
     "react-dom": "16.13.1"
   },
   "dependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.12.1",
     "@babel/runtime": "^7.9.2",
     "@transferwise/formatting": "^2.1.0",
     "@transferwise/icons": "^2.4.0",

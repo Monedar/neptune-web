@@ -3,6 +3,68 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.3](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@7.2.2...@transferwise/neptune-docs@7.2.3) (2020-11-10)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [7.2.2](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@7.2.1...@transferwise/neptune-docs@7.2.2) (2020-11-10)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [7.2.1](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@7.2.0...@transferwise/neptune-docs@7.2.1) (2020-11-10)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+# [7.2.0](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@7.1.14...@transferwise/neptune-docs@7.2.0) (2020-11-09)
+
+
+### Features
+
+* snackbar with a light theme ([#663](https://github.com/transferwise/neptune-web/issues/663)) ([e1d2fa2](https://github.com/transferwise/neptune-web/commit/e1d2fa2f58f93f7812d8fdc032a25385833d9b21))
+
+
+
+
+
+## [7.1.14](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@7.1.13...@transferwise/neptune-docs@7.1.14) (2020-11-09)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [7.1.13](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@7.1.12...@transferwise/neptune-docs@7.1.13) (2020-11-05)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [7.1.12](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@7.1.11...@transferwise/neptune-docs@7.1.12) (2020-11-05)
+
+
+### Bug Fixes
+
+* render select into dimmer for mobile view ([#651](https://github.com/transferwise/neptune-web/issues/651)) ([14bd4f4](https://github.com/transferwise/neptune-web/commit/14bd4f4d866ffa67f8f092cae738bb18a8ba7a9c))
+
+
+
+
+
 ## [7.1.11](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@7.1.10...@transferwise/neptune-docs@7.1.11) (2020-11-04)
 
 **Note:** Version bump only for package @transferwise/neptune-docs

@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.9.0](https://github.com/transferwise/neptune-web/compare/@transferwise/dynamic-flows@5.8.7...@transferwise/dynamic-flows@5.9.0) (2020-11-10)
+
+
+### Features
+
+* persistAsyncSchema renders passed down errors ([5e0e493](https://github.com/transferwise/neptune-web/commit/5e0e4930caf443c86a881d9e73776e3fbcac6989))
+
+
+
+
+
+## [5.8.7](https://github.com/transferwise/neptune-web/compare/@transferwise/dynamic-flows@5.8.6...@transferwise/dynamic-flows@5.8.7) (2020-11-10)
+
+
+### Bug Fixes
+
+* broadcast valid model on schema change ([#661](https://github.com/transferwise/neptune-web/issues/661)) ([9714bf0](https://github.com/transferwise/neptune-web/commit/9714bf0f447e9ccc53bb9b4523afff80a8833446))
+
+
+
+
+
+## [5.8.6](https://github.com/transferwise/neptune-web/compare/@transferwise/dynamic-flows@5.8.5...@transferwise/dynamic-flows@5.8.6) (2020-11-10)
+
+**Note:** Version bump only for package @transferwise/dynamic-flows
+
+
+
+
+
+## [5.8.5](https://github.com/transferwise/neptune-web/compare/@transferwise/dynamic-flows@5.8.4...@transferwise/dynamic-flows@5.8.5) (2020-11-09)
+
+**Note:** Version bump only for package @transferwise/dynamic-flows
+
+
+
+
+
+## [5.8.4](https://github.com/transferwise/neptune-web/compare/@transferwise/dynamic-flows@5.8.3...@transferwise/dynamic-flows@5.8.4) (2020-11-09)
+
+**Note:** Version bump only for package @transferwise/dynamic-flows
+
+
+
+
+
+## [5.8.3](https://github.com/transferwise/neptune-web/compare/@transferwise/dynamic-flows@5.8.2...@transferwise/dynamic-flows@5.8.3) (2020-11-05)
+
+**Note:** Version bump only for package @transferwise/dynamic-flows
+
+
+
+
+
 ## [5.8.2](https://github.com/transferwise/neptune-web/compare/@transferwise/dynamic-flows@5.8.1...@transferwise/dynamic-flows@5.8.2) (2020-11-04)
 
 **Note:** Version bump only for package @transferwise/dynamic-flows

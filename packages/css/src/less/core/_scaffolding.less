@@ -16,12 +16,7 @@ html {
   background-color: var(--color-background-screen);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%; // Normalize 8.0.1
-
-  @media (--screen-md) {
-    font-size: @font-size-base--desktop;
-    line-height: @line-height-base--desktop;
-  }
+  text-size-adjust: 100%; // Normalize 8.0.1
 }
 
 body {
@@ -147,7 +142,7 @@ button,
 [type='reset'],
 [type='submit'] {
   cursor: pointer;
-  -webkit-appearance: button; // Normalize 8.0.1
+  appearance: button; // Normalize 8.0.1
 
   &::-moz-focus-inner {
     padding: 0; // Normalize 8.0.1
@@ -181,16 +176,16 @@ button,
 
 [type='search'] {
   outline-offset: -2px; // Normalize 8.0.1
-  -webkit-appearance: textfield; // Normalize 8.0.1
+  appearance: textfield; // Normalize 8.0.1
 
   &::-webkit-search-decoration {
-    -webkit-appearance: none; // Normalize 8.0.1
+    appearance: none; // Normalize 8.0.1
   }
 }
 
 ::-webkit-file-upload-button {
   font: inherit; // Normalize 8.0.1
-  -webkit-appearance: button; // Normalize 8.0.1
+  appearance: button; // Normalize 8.0.1
 }
 
 textarea {
@@ -200,8 +195,8 @@ textarea {
 
 input,
 textarea {
-  &:-ms-input-placeholder,
-  &::-ms-input-placeholder,
+  &:input-placeholder,
+  &::input-placeholder,
   &::placeholder {
     color: var(--color-text-inactive);
   }
@@ -246,19 +241,11 @@ ul {
 
 dt,
 dd {
-  line-height: @line-height-base;
-
-  @media (--screen-md) {
-    line-height: @line-height-base--desktop;
-  }
+  line-height: @line-height-small;
 }
 
 dt {
   font-size: @font-size-small;
-
-  @media (--screen-md) {
-    font-size: @font-size-small--desktop;
-  }
 }
 
 dd {

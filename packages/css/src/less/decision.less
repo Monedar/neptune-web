@@ -8,6 +8,10 @@
   align-items: center;
   transition: background-color ease 350ms;
 
+  &__content {
+    margin-top: var(--size-4);
+  }
+
   + .decision {
     margin-top: -1px;
   }
@@ -22,6 +26,13 @@
 
   .media-left {
     display: none;
+  }
+
+  .media-body {
+    color: @color-base-grey-dark;
+    font-weight: @font-weight-base;
+    font-size: @font-size-small; // 14px
+    line-height: calc(20 / 14); // 20px
   }
 
   @media (--screen-xs) {

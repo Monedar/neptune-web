@@ -15,3 +15,4 @@ export { FormControlType } from './propsValues/formControlType';
 export { Status } from './propsValues/status';
 export { MessageType } from './propsValues/messageType';
 export { ProfileType } from './propsValues/profileType';
+export { Key } from './key';

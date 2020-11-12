@@ -84,6 +84,7 @@
     "core-js": "^3.6.5",
     "lodash.clamp": "^4.0.3",
     "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1",
     "lodash.topairs": "^4.3.0",
     "react-required-if": "^1.0.3",
     "react-spring": "^8.0.27",

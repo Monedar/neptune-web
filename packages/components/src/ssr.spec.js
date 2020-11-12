@@ -68,6 +68,7 @@ describe('Server side rendering', () => {
     badge: <svg />,
     link: 'link',
     href: '#',
+    description: 'description',
     'aria-label': 'a label',
   };
 
@@ -90,6 +91,9 @@ describe('Server side rendering', () => {
       model: 'a model',
       type: 'text',
       children: <input />,
+    },
+    Tile: {
+      media: <img alt="img" />,
     },
   };
 

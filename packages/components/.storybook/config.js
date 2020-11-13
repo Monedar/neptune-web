@@ -4,6 +4,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import { withA11y } from '@storybook/addon-a11y';
 
+import { Provider } from '../src';
 import theme from './common/theme';
 import '@transferwise/neptune-css/dist/css/neptune.css';
 import '@transferwise/icons/lib/styles/main.min.css';
@@ -47,6 +48,7 @@ addDecorator(
 );
 addDecorator(CenterDecorator);
 addDecorator(StrictModeDecorator);
+addDecorator((storyFn) => <Provider locale="fr">{storyFn()}</Provider>);
 addParameters({
   options: {
     theme,

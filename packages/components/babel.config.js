@@ -79,6 +79,15 @@ module.exports = {
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-transform-react-jsx',
     '@babel/plugin-transform-runtime',
+    [
+      'react-intl',
+      {
+        idInterpolationPattern: '[sha512:contenthash:base64:6]',
+        extractFromFormatMessageCall: true,
+        removeDefaultMessage: true,
+        ast: true,
+      },
+    ],
   ],
   env: {
     test: testConfig,

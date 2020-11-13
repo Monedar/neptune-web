@@ -48,7 +48,7 @@ addDecorator(
 );
 addDecorator(CenterDecorator);
 addDecorator(StrictModeDecorator);
-addDecorator((storyFn) => <Provider locale="fr">{storyFn()}</Provider>);
+addDecorator((storyFn) => <Provider locale="en">{storyFn()}</Provider>);
 addParameters({
   options: {
     theme,

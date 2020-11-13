@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Types from 'prop-types';
 import { createIntl, createIntlCache, RawIntlProvider } from 'react-intl';
-import { en } from '../../lang';
+import en from '../../lang/en.json';
 
 const defaultLocale = 'en';
 const cache = createIntlCache();
@@ -17,16 +17,16 @@ function createIntlInstance(locale, messages) {
   );
 }
 
-let intl = createIntlInstance(defaultLocale, en);
-
 function Provider({ locale, children }) {
+  const [intl, setIntl] = useState(createIntlInstance(defaultLocale, en));
+
   useEffect(() => {
     (async function changeLanguage() {
       try {
         const newMessages = await import(`../../lang/${locale}.json`);
-        intl = createIntlInstance(locale, newMessages);
+        setIntl(createIntlInstance(locale, newMessages));
       } catch (e) {
-        intl = createIntlInstance(locale, en);
+        setIntl(createIntlInstance(locale, en));
       }
     })();
   }, [locale]);

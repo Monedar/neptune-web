@@ -26,7 +26,6 @@
     "build:clean": "rm -rf dist",
     "build:copy-assets": "npm-run-all --parallel copy:*",
     "build:compile-less": "gulp compileLess --src='src/less'",
-    "build:compile-deprecated": "gulp compileLess --src='src/less/deprecated' --dest='dist/css/deprecated'",
     "build:copy-props": "gulp copyPropsAndVars --src='src/props' --dest='dist/props'",
     "build:copy-vars": "gulp copyPropsAndVars --src='src/variables' --dest='dist/less'",
     "dev": "npm-run-all --parallel dev:*",

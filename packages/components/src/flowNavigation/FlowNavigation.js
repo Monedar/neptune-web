@@ -27,8 +27,12 @@ const FlowNavigation = ({ avatar, steps, activeStep, onClose, onGoBack, showStep
     <Header
       leftContent={
         <div className="m-lg-t-1">
-          <Logo theme={theme} onGoBack={onGoBack} />
-          <BackButton steps={steps} activeStep={activeStep} onGoBack={onGoBack} />
+          <Logo theme={theme} type={Logo.Type.FULL} className="hidden-xs" />
+          {onGoBack ? (
+            <BackButton steps={steps} activeStep={activeStep} onGoBack={onGoBack} />
+          ) : (
+            <Logo theme={theme} type={Logo.Type.FLAG} className="visible-xs" />
+          )}
         </div>
       }
       rightContent={

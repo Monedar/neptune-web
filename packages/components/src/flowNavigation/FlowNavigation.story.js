@@ -28,6 +28,7 @@ export const basic = () => {
       done={done}
       // profileType={profileType}
       onGoBack={action('go back')}
+      showStepper={!done && theme !== FlowNavigation.Theme.DARK}
       theme={theme}
       steps={[
         {

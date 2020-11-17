@@ -16,13 +16,12 @@ import './FlowNavigation.css';
  *
  * @param {array} [steps] - The step to be displayed in the stepper and used by the backButton.
  * @param {number} [activeStep] - current selected step.
- * @param {boolean} [done] - state of the flow. If truthy stepper and avatar gets hidden. Border bottom also gets removed when done = true
  * @param {function} [onClose] - Callback for the close button. If not present, no close button will be rendered.
  * @param {function} [onGoBack] - Callback for the BackButton. If not provided BackButton won't be displayed and Logo compact will display instead from mobile views.
  * @param {string} [theme=FlowNavigation.Theme.LIGHT] - Theme to use
  * @usage `<FlowNavigation activeStep={activeStep} onClose={callback} avatarUrl={someUrl} done={done}  onGoBack={callback} theme={OverlayHeader.Theme.LIGHT} steps={steps} />`
  * */
-const FlowNavigation = ({ avatar, steps, activeStep, done, onClose, onGoBack, theme }) => {
+const FlowNavigation = ({ avatar, steps, activeStep, onClose, onGoBack, showStepper, theme }) => {
   const closeButton = onClose && <CloseButton onClick={onClose} />;
   return (
     <Header
@@ -39,16 +38,9 @@ const FlowNavigation = ({ avatar, steps, activeStep, done, onClose, onGoBack, th
           {closeButton}
         </div>
       }
-      bottomContent={
-        done || theme === Theme.DARK ? null : (
-          <div className="tw-flow-navigation__stepper m-lg-t-1">
-            <Stepper activeStep={activeStep} steps={steps} />
-          </div>
-        )
-      }
+      bottomContent={showStepper && <Stepper activeStep={activeStep} steps={steps} />}
       className={classNames('tw-flow-navigation', 'tw-flow-navigation__wrapper', {
-        'tw-flow-navigation--done': done,
-        'tw-flow-navigation--inverse': theme === FlowNavigation.Theme.DARK,
+        'tw-flow-navigation--show-border': showStepper,
       })}
     />
   );
@@ -59,14 +51,15 @@ FlowNavigation.Theme = Theme;
 FlowNavigation.defaultProps = {
   activeStep: 0,
   avatar: null,
-  done: false,
   onGoBack: null,
   onClose: null,
+  showStepper: true,
   theme: Theme.LIGHT,
 };
 
 FlowNavigation.propTypes = {
   avatar: Types.node,
+  showStepper: Types.bool,
   steps: Types.arrayOf(
     Types.shape({
       label: Types.node.isRequired,
@@ -75,7 +68,6 @@ FlowNavigation.propTypes = {
     }),
   ).isRequired,
   activeStep: Types.number,
-  done: Types.bool,
   onGoBack: Types.func,
   onClose: Types.func,
   theme: Types.oneOf([FlowNavigation.Theme.LIGHT, FlowNavigation.Theme.DARK]),

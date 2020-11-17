@@ -35,14 +35,7 @@ const FlowNavigation = ({
   theme,
 }) => {
   const avatar = done ? null : <AvatarWrapper url={avatarUrl} profileType={profileType} />;
-  const closeButton = onClose && (
-    <CloseButton
-      onClick={onClose}
-      className={classNames('m-l-3', {
-        'close-button-with-avatar': !done,
-      })}
-    />
-  );
+  const closeButton = onClose && <CloseButton onClick={onClose} />;
   return (
     <Header
       leftContent={
@@ -54,6 +47,7 @@ const FlowNavigation = ({
       rightContent={
         <div className="tw-flow-navigation__right-content m-lg-t-1">
           {avatar}
+          {avatar && closeButton && <span className="separator m-a-2" />}
           {closeButton}
         </div>
       }

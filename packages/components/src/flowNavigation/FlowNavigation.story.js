@@ -2,6 +2,7 @@ import React from 'react';
 import { boolean, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import FlowNavigation from './FlowNavigation';
+import AvatarWrapper from './avatarWrapper';
 
 export default {
   component: FlowNavigation,
@@ -12,19 +13,20 @@ export const basic = () => {
   const activeStep = select('activeStep', [0, 1, 2, 3]);
   const done = boolean('done', false);
   const theme = select('theme', Object.values(FlowNavigation.Theme), FlowNavigation.Theme.LIGHT);
-  const profileType = select(
-    'profileType',
-    Object.values(FlowNavigation.ProfileType),
-    FlowNavigation.ProfileType.BUSINESS,
-  );
+  const profileType = select('profileType', ['BUSINESS', 'PERSONAL'], 'PERSONAL');
 
   return (
     <FlowNavigation
+      avatar={
+        done ? null : (
+          <AvatarWrapper url="https://github.com/transferwise.png" profileType={profileType} />
+        )
+      }
       activeStep={activeStep}
       onClose={action('Close clicked')}
-      avatarUrl="https://github.com/transferwise.png"
+      // avatarUrl="https://github.com/transferwise.png"
       done={done}
-      profileType={profileType}
+      // profileType={profileType}
       onGoBack={action('go back')}
       theme={theme}
       steps={[

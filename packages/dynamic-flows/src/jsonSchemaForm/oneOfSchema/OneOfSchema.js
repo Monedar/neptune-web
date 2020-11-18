@@ -98,15 +98,18 @@ const OneOfSchema = (props) => {
       const: index,
       disabled: schema.disabled,
       icon: schema.icon,
-      originalType:
-        schema.type === OriginalOneOfTypes.OBJECT
-          ? OriginalOneOfTypes.OBJECT
-          : OriginalOneOfTypes.CONST,
     };
   };
 
   const mapSchemas = (schema) => {
-    return { ...schema, oneOf: schema.oneOf.map(mapOneOfToConst) };
+    return {
+      ...schema,
+      originalType:
+        schema.oneOf[0].type === OriginalOneOfTypes.OBJECT
+          ? OriginalOneOfTypes.OBJECT
+          : OriginalOneOfTypes.CONST,
+      oneOf: schema.oneOf.map(mapOneOfToConst),
+    };
   };
 
   const schemaForSelect = mapSchemas(props.schema);

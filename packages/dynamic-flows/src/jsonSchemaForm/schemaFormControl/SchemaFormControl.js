@@ -23,7 +23,7 @@ const SchemaFormControl = (props) => {
     return (
       schema.control === FormControlType.SELECT &&
       schema.oneOf &&
-      schema.oneOf[0].originalType === OriginalOneOfTypes.OBJECT
+      schema.originalType === OriginalOneOfTypes.OBJECT
     );
   };
 

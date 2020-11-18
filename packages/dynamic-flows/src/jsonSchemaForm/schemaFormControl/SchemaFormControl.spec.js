@@ -182,6 +182,23 @@ describe('Given a component for rendering a form control based on a schema', () 
     });
   });
 
+  describe('when a schema with oneOf two consts is supplied', () => {
+    beforeEach(() => {
+      component.setProps({
+        schema: {
+          oneOf: [
+            { const: 1, title: 'One' },
+            { const: 2, title: 'Two' },
+          ],
+        },
+      });
+    });
+
+    it('should ask the FormControl for a radio control', () => {
+      expect(component.find(FormControl).prop('type')).toEqual('radio');
+    });
+  });
+
   describe('when a schema with oneOf three consts is supplied', () => {
     beforeEach(() => {
       component.setProps({
@@ -297,6 +314,48 @@ describe('Given a component for rendering a form control based on a schema', () 
         { value: 1, label: 'One' },
         { value: 3, label: 'Three' },
       ]);
+    });
+  });
+
+  describe('when a schema with oneOf of consts mapped from objects is supplied along with control', () => {
+    const threeConstsMappedFromOneOfObjectsSchema = {
+      schema: {
+        oneOf: [
+          { const: 0, title: 'Zero' },
+          { const: 1, title: 'One' },
+          { const: 2, title: 'Two' },
+        ],
+        originalType: 'object',
+        control: 'select',
+      },
+    };
+
+    const twoConstsMappedFromOneOfObjectsSchema = {
+      schema: {
+        oneOf: [
+          { const: 0, title: 'Zero' },
+          { const: 1, title: 'One' },
+          { const: 2, title: 'Two' },
+        ],
+        originalType: 'object',
+        control: 'select',
+      },
+    };
+
+    describe('when there are two schemas inside the oneOf', () => {
+      it('should ask the FormControl for a select control', () => {
+        component.setProps(threeConstsMappedFromOneOfObjectsSchema);
+
+        expect(component.find(FormControl).prop('type')).toEqual('select');
+      });
+    });
+
+    describe('when there are more than two schemas inside the oneOf', () => {
+      it('should ask the FormControl for a tab control', () => {
+        component.setProps(twoConstsMappedFromOneOfObjectsSchema);
+
+        expect(component.find(FormControl).prop('type')).toEqual('select');
+      });
     });
   });
 

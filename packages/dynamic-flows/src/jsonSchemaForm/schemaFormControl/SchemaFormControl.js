@@ -19,7 +19,7 @@ const SchemaFormControl = (props) => {
     props.onChange(getValidModelParts(value, props.schema));
   };
 
-  const shouldRenderOneOfOfObjects = (schema) => {
+  const shouldRenderOneOfObjects = (schema) => {
     return (
       schema.control === FormControlType.SELECT &&
       schema.oneOf &&
@@ -29,7 +29,7 @@ const SchemaFormControl = (props) => {
 
   const getControlType = (schema) => {
     if (schema.control) {
-      if (shouldRenderOneOfOfObjects(schema)) {
+      if (shouldRenderOneOfObjects(schema)) {
         return schema.oneOf.length > 2 ? FormControlType.SELECT : FormControlType.TAB;
       }
       return schema.control;

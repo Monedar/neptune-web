@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [30.6.1](https://github.com/transferwise/neptune-web/compare/@transferwise/components@30.6.0...@transferwise/components@30.6.1) (2020-11-17)
+
+
+### Bug Fixes
+
+* notify when search query is cleared automatically ([#677](https://github.com/transferwise/neptune-web/issues/677)) ([d0fef3d](https://github.com/transferwise/neptune-web/commit/d0fef3df4cdcfce0877e84219e5949b5e09b2eab))
+
+
+
+
+
+# [30.6.0](https://github.com/transferwise/neptune-web/compare/@transferwise/components@30.5.1...@transferwise/components@30.6.0) (2020-11-16)
+
+
+### Features
+
+* add callback to react to search changes in money input ([#676](https://github.com/transferwise/neptune-web/issues/676)) ([a88e986](https://github.com/transferwise/neptune-web/commit/a88e9869534047a4baf071fe4b1069a66f6e7cc1))
+
+
+
+
+
+## [30.5.1](https://github.com/transferwise/neptune-web/compare/@transferwise/components@30.5.0...@transferwise/components@30.5.1) (2020-11-12)
+
+**Note:** Version bump only for package @transferwise/components
+
+
+
+
+
 # [30.5.0](https://github.com/transferwise/neptune-web/compare/@transferwise/components@30.4.1...@transferwise/components@30.5.0) (2020-11-11)
 
 

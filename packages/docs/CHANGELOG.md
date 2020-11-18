@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.2.9](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@7.2.8...@transferwise/neptune-docs@7.2.9) (2020-11-17)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [7.2.8](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@7.2.7...@transferwise/neptune-docs@7.2.8) (2020-11-16)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [7.2.7](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@7.2.6...@transferwise/neptune-docs@7.2.7) (2020-11-16)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [7.2.6](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@7.2.5...@transferwise/neptune-docs@7.2.6) (2020-11-13)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
+## [7.2.5](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@7.2.4...@transferwise/neptune-docs@7.2.5) (2020-11-12)
+
+**Note:** Version bump only for package @transferwise/neptune-docs
+
+
+
+
+
 ## [7.2.4](https://github.com/transferwise/neptune-web/compare/@transferwise/neptune-docs@7.2.3...@transferwise/neptune-docs@7.2.4) (2020-11-11)
 
 **Note:** Version bump only for package @transferwise/neptune-docs

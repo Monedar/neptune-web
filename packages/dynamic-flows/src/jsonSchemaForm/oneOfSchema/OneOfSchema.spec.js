@@ -255,7 +255,7 @@ describe('Given a oneOfSchema component', () => {
     it('should not set a default for the SchemaFormControl value', () => {
       expect(schemaFormControl.prop('value')).toBe(null);
     });
-    
+
     it('should not broadcast a model update', () => {
       expect(onChange).not.toHaveBeenCalled();
     });

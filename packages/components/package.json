@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
     "dev:watch-less": "gulp watchLess --dest=src",
-    "dev:storybook": "start-storybook -p 3001",
+    "dev:storybook": "npx npm-watch & start-storybook -p 3001",
     "build": "npm-run-all build:*",
     "build:clean": "rm -rf lib build",
     "build:default-locale-source": "combine-messages -i 'src/**/*.messages.js' -o 'lang/en.json'",
@@ -69,7 +69,8 @@
     "rollup": "^2.7.6",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-uglify": "^6.0.4"
+    "rollup-plugin-uglify": "^6.0.4",
+    "npm-watch": "^0.7.0"
   },
   "peerDependencies": {
     "currency-flags": "^2.1.1",
@@ -95,6 +96,9 @@
     "react-required-if": "^1.0.3",
     "react-spring": "^8.0.27",
     "react-transition-group": "^4.2.1"
+  },
+  "watch": {
+    "build:default-locale-source": "src/**/*.messages.js"
   },
   "resolutions": {
     "@storybook/**/kind-of": "^6.0.3"

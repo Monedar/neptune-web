@@ -98,6 +98,10 @@ const OneOfSchema = (props) => {
       const: index,
       disabled: schema.disabled,
       icon: schema.icon,
+      originalType:
+        schema.type === OriginalOneOfTypes.OBJECT
+          ? OriginalOneOfTypes.OBJECT
+          : OriginalOneOfTypes.CONST,
     };
   };
 
@@ -173,6 +177,11 @@ const OneOfSchema = (props) => {
       )}
     </>
   );
+};
+
+export const OriginalOneOfTypes = {
+  OBJECT: 'object',
+  CONST: 'const',
 };
 
 OneOfSchema.propTypes = {

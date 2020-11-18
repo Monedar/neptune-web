@@ -6,6 +6,7 @@ import FormControl from '../../formControl';
 import { getValidModelParts } from '../../common/validation/valid-model';
 import { getCurrencyFlag } from './availableCurrencyFlags';
 import { FormControlType } from '../../common';
+import { OriginalOneOfTypes } from '../oneOfSchema/OneOfSchema';
 
 const SchemaFormControl = (props) => {
   const isNativeInput = (schemaType) => schemaType === 'string' || schemaType === 'number';
@@ -18,13 +19,17 @@ const SchemaFormControl = (props) => {
     props.onChange(getValidModelParts(value, props.schema));
   };
 
+  const shouldRenderOneOfOfObjects = (schema) => {
+    return (
+      schema.control === FormControlType.SELECT &&
+      schema.oneOf &&
+      schema.oneOf[0].originalType === OriginalOneOfTypes.OBJECT
+    );
+  };
+
   const getControlType = (schema) => {
     if (schema.control) {
-      if (
-        schema.control === FormControlType.SELECT &&
-        schema.oneOf &&
-        schema.oneOf[0].title === 'Inside Europe' // TODO: Fix this
-      ) {
+      if (shouldRenderOneOfOfObjects(schema)) {
         return schema.oneOf.length > 2 ? FormControlType.SELECT : FormControlType.TAB;
       }
       return schema.control;

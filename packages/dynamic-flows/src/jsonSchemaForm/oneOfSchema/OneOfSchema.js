@@ -104,10 +104,6 @@ const OneOfSchema = (props) => {
   const mapSchemas = (schema) => {
     return {
       ...schema,
-      originalType:
-        schema.oneOf[0].type === OriginalOneOfTypes.OBJECT
-          ? OriginalOneOfTypes.OBJECT
-          : OriginalOneOfTypes.CONST,
       oneOf: schema.oneOf.map(mapOneOfToConst),
     };
   };
@@ -180,11 +176,6 @@ const OneOfSchema = (props) => {
       )}
     </>
   );
-};
-
-export const OriginalOneOfTypes = {
-  OBJECT: 'object',
-  CONST: 'const',
 };
 
 OneOfSchema.propTypes = {

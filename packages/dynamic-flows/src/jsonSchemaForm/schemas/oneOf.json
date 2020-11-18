@@ -8,7 +8,7 @@
     },
     "bank": {
       "title": "Bank",
-      "control": "select",
+      "control": "tab",
       "oneOf": [
         {
           "title": "X Bank",

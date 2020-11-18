@@ -317,45 +317,22 @@ describe('Given a component for rendering a form control based on a schema', () 
     });
   });
 
-  describe('when a schema with oneOf of consts mapped from objects is supplied along with control', () => {
-    const threeConstsMappedFromOneOfObjectsSchema = {
-      schema: {
-        oneOf: [
-          { const: 0, title: 'Zero' },
-          { const: 1, title: 'One' },
-          { const: 2, title: 'Two' },
-        ],
-        originalType: 'object',
-        control: 'select',
-      },
-    };
-
-    const twoConstsMappedFromOneOfObjectsSchema = {
-      schema: {
-        oneOf: [
-          { const: 0, title: 'Zero' },
-          { const: 1, title: 'One' },
-          { const: 2, title: 'Two' },
-        ],
-        originalType: 'object',
-        control: 'select',
-      },
-    };
-
-    describe('when there are two schemas inside the oneOf', () => {
-      it('should ask the FormControl for a select control', () => {
-        component.setProps(threeConstsMappedFromOneOfObjectsSchema);
-
-        expect(component.find(FormControl).prop('type')).toEqual('select');
+  describe('when an oneOf tab schema is supplied', () => {
+    beforeEach(() => {
+      component.setProps({
+        schema: {
+          oneOf: [
+            { const: 0, title: 'Zero' },
+            { const: 1, title: 'One' },
+            { const: 2, title: 'Two' },
+          ],
+          control: 'tab',
+        },
       });
     });
 
-    describe('when there are more than two schemas inside the oneOf', () => {
-      it('should ask the FormControl for a tab control', () => {
-        component.setProps(twoConstsMappedFromOneOfObjectsSchema);
-
-        expect(component.find(FormControl).prop('type')).toEqual('select');
-      });
+    it('should ask the FormControl for a tab control', () => {
+      expect(component.find(FormControl).prop('type')).toEqual('tab');
     });
   });
 

@@ -94,10 +94,6 @@ describe('Given a oneOfSchema component', () => {
       expect(schemaFormControl).toHaveLength(1);
     });
 
-    it('should pass the original type to the SchemaFormControl', () => {
-      expect(schemaFormControl.prop('schema').originalType).toEqual('object');
-    });
-
     it('should render one generic schema component', () => {
       expect(genericSchema.length).toBe(1);
     });
@@ -259,11 +255,7 @@ describe('Given a oneOfSchema component', () => {
     it('should not set a default for the SchemaFormControl value', () => {
       expect(schemaFormControl.prop('value')).toBe(null);
     });
-
-    it('should pass the original type to the SchemaFormControl', () => {
-      expect(schemaFormControl.prop('schema').originalType).toEqual('const');
-    });
-
+    
     it('should not broadcast a model update', () => {
       expect(onChange).not.toHaveBeenCalled();
     });

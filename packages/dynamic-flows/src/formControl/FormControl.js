@@ -195,10 +195,12 @@ export default class FormControl extends PureComponent {
         return (
           <Tabs
             id={id}
-            selected={this.getSelectedOption(options).value}
-            tabs={options.map((option) => {
-              return { title: option.label };
-            })}
+            selected={this.getSelectedOption(options)?.value || 0}
+            tabs={options.map((option) => ({
+              title: option.label,
+              content: <></>,
+              disabled: option.disabled || false,
+            }))}
             onTabSelect={(newIndex) => {
               this.setState({ selectedOption: this.getSelectedOptionFromIndex(options, newIndex) });
               this.handleOnChange(newIndex);
@@ -389,6 +391,7 @@ FormControl.propTypes = {
     FormControl.Type.TEXT,
     FormControl.Type.TEXTAREA,
     FormControl.Type.UPLOAD,
+    FormControl.Type.TAB,
   ]),
   name: Types.string.isRequired,
   id: Types.string,

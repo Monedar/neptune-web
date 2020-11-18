@@ -5,8 +5,6 @@ import { isNull, isUndefined } from '@transferwise/neptune-validation';
 import FormControl from '../../formControl';
 import { getValidModelParts } from '../../common/validation/valid-model';
 import { getCurrencyFlag } from './availableCurrencyFlags';
-import { FormControlType } from '../../common';
-import { OriginalOneOfTypes } from '../oneOfSchema/OneOfSchema';
 
 const SchemaFormControl = (props) => {
   const isNativeInput = (schemaType) => schemaType === 'string' || schemaType === 'number';
@@ -19,19 +17,8 @@ const SchemaFormControl = (props) => {
     props.onChange(getValidModelParts(value, props.schema));
   };
 
-  const shouldRenderOneOfObjects = (schema) => {
-    return (
-      schema.control === FormControlType.SELECT &&
-      schema.oneOf &&
-      schema.originalType === OriginalOneOfTypes.OBJECT
-    );
-  };
-
   const getControlType = (schema) => {
     if (schema.control) {
-      if (shouldRenderOneOfObjects(schema)) {
-        return schema.oneOf.length > 2 ? FormControlType.SELECT : FormControlType.TAB;
-      }
       return schema.control;
     }
 

@@ -92,6 +92,9 @@ describe('Server side rendering', () => {
       type: 'text',
       children: <input />,
     },
+    Summary: {
+      status: 'done',
+    },
     Tile: {
       media: <img alt="img" />,
     },

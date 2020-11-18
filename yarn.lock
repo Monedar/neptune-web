@@ -3469,10 +3469,10 @@
   resolved "https://registry.yarnpkg.com/@transferwise/formatting/-/formatting-2.6.0.tgz#8c518c52f569dc8745b6314b78d52c42eb1703a4"
   integrity sha512-L3SZvfFXi4l0gFfyqIp2npN+YsCyb466JztkloWy1/I7qmIzTp4bB20R2hadm3dBjTEKvbv4caL/JrRuM+1VGg==
 
-"@transferwise/icons@^2.4.0":
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/@transferwise/icons/-/icons-2.4.2.tgz#1f2b057f4f4849830238c62056cd3c1fa4c28d0f"
-  integrity sha512-8NUa/lNc5OS+JyOGGVP8WvoRLOAj17jpp2oUnn4Je12DPHGUOLkKgZ2bA4Hiw2gAAd70jd5lSMjTf4unpiePrg==
+"@transferwise/icons@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@transferwise/icons/-/icons-2.5.0.tgz#713757e71ca21c9144ea8c96c605fce3e2173d9b"
+  integrity sha512-YAISyvpe1Dte5Nz1tAhVMin1f+fXoxYtO6jNju6grkm4bcOTVhK+ZQg2BUniQ9Y9JBY5XXzcz0lJQZtfs0/vyw==
 
 "@transferwise/neptune-tokens@^1.0.0":
   version "1.0.0"

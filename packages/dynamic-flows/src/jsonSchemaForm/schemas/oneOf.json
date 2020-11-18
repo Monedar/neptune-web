@@ -6,6 +6,38 @@
       "type": "string",
       "title": "Full name"
     },
+    "bank": {
+      "title": "Bank",
+      "control": "select",
+      "oneOf": [
+        {
+          "title": "X Bank",
+          "type": "object",
+          "required": ["iban"],
+          "properties": {
+            "iban": {
+              "type": "string",
+              "title": "Bank number",
+              "default": "1231253671526"
+            }
+          }
+        },
+        {
+          "title": "Y Bank",
+          "type": "object",
+          "required": ["bankCode"],
+          "properties": {
+            "bankCode": {
+              "type": "string",
+              "title": "Bank Code",
+              "displayFormat": "**-**-**",
+              "minLength": 6,
+              "maxLength": 7
+            }
+          }
+        }
+      ]
+    },
     "details": {
       "title": "Account type",
       "oneOf": [

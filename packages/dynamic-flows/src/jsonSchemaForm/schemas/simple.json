@@ -1,273 +1,39 @@
 {
-  "allOf": [
-    {
-      "type": "object",
-      "displayOrder": [
-        "currency",
-        "legalEntityType",
-        "email"
-      ],
-      "properties": {
-        "currency": {
-          "title": "Currency",
-          "type": "string",
-          "hidden": true,
-          "const": "EUR"
-        },
-        "legalEntityType": {
-          "title": "Select recipient type",
-          "type": "string",
-          "oneOf": [
-            {
-              "title": "Person",
-              "const": "PERSON"
-            },
-            {
-              "title": "Business",
-              "const": "INSTITUTION"
-            }
-          ],
-          "validationMessages": {
-            "required": "Please specify the type of recipient."
-          },
-          "refreshFormOnChange": true
-        },
-        "email": {
-          "title": "Their email (Optional)",
-          "type": "string",
-          "placeholder": "example@example.ex",
-          "validationMessages": {
-            "maxLength": "The email you have entered is too long.",
-            "pattern": "The email address is invalid."
-          },
-          "refreshFormOnChange": true,
-          "autofillProvider": "contact",
-          "autofillKey": "contact.email",
-          "refreshFormUrl": "/v3/account-requirements?additionalInfo=legacyType&targetCurrency=EUR&cardRecipientsEnabled=false&trigger=email",
-          "pattern": "^[^\\s]+@[^\\s]+\\.[^\\s]+$",
-          "maxLength": 255
-        }
-      },
-      "required": [
-        "currency",
-        "legalEntityType"
-      ]
+  "title": "Object schema",
+  "type": "object",
+  "properties": {
+    "number": {
+      "type": "number",
+      "title": "Number input"
     },
-    {
-      "title": "Recipient bank details",
+    "string": {
+      "type": "string",
+      "title": "Text input"
+    },
+    "select": {
+      "type": "integer",
+      "title": "Select",
+      "control": "radio",
+      "placeholder": "Favourite number?",
       "oneOf": [
         {
-          "title": "Inside Europe",
-          "type": "object",
-          "displayOrder": [
-            "name",
-            "ownedByCustomer",
-            "details",
-            "profileId",
-            "type"
-          ],
-          "properties": {
-            "name": {
-              "type": "object",
-              "displayOrder": [
-                "fullName"
-              ],
-              "properties": {
-                "fullName": {
-                  "title": "Full name of the account holder",
-                  "type": "string",
-                  "validationMessages": {
-                    "minLength": "Name needs to be between 2 and 70 characters long, and contain both first and last name.",
-                    "maxLength": "Recipient name cannot be longer than 70 characters.",
-                    "pattern": "This recipient name may contain invalid characters or is not the full name. Please try again."
-                  },
-                  "autofillProvider": "contact",
-                  "autofillKey": "contact.fullName",
-                  "pattern": "^ *[0-9A-Za-zÀ-ÖØ-öø-ÿ-_()'*,.]+ +[0-9A-Za-zÀ-ÖØ-öø-ÿ-_()'*,.]+([0-9A-Za-zÀ-ÖØ-öø-ÿ-_()'*,. ]*)$",
-                  "minLength": 2,
-                  "maxLength": 70
-                }
-              },
-              "required": [
-                "fullName"
-              ]
-            },
-            "ownedByCustomer": {
-              "title": "My own Account",
-              "type": "boolean",
-              "refreshFormOnChange": true
-            },
-            "details": {
-              "type": "object",
-              "displayOrder": [
-                "bic",
-                "iban"
-              ],
-              "properties": {
-                "bic": {
-                  "title": "Bank code (BIC/SWIFT)",
-                  "type": "string",
-                  "placeholder": "Choose recipient bank",
-                  "hidden": true,
-                  "validationMessages": {
-                    "minLength": "The BIC you have entered is too short.",
-                    "maxLength": "The BIC you have entered is too long.",
-                    "pattern": "Please specify a valid BIC."
-                  },
-                  "pattern": "^[A-Za-z]{6}[A-Za-z\\d]{2}([A-Za-z\\d]{3})?$",
-                  "minLength": 8,
-                  "maxLength": 11
-                },
-                "iban": {
-                  "title": "IBAN",
-                  "type": "string",
-                  "placeholder": "DE89370400440532013000",
-                  "displayFormat": "**** **** **** **** **** **** **** ****",
-                  "validationMessages": {
-                    "minLength": "The IBAN you have entered is too short.",
-                    "maxLength": "The IBAN you have entered is too long.",
-                    "pattern": "Please specify a valid IBAN.",
-                    "required": "Please specify an IBAN."
-                  },
-                  "pattern": "^[a-zA-Z]{2}[a-zA-Z0-9 ]{12,40}$",
-                  "minLength": 14,
-                  "maxLength": 42
-                }
-              },
-              "required": [
-                "iban"
-              ]
-            },
-            "profileId": {
-              "title": "profileId",
-              "type": "string",
-              "hidden": true
-            },
-            "type": {
-              "title": "Type",
-              "type": "string",
-              "hidden": true,
-              "const": "Iban"
-            }
-          },
-          "required": [
-            "type",
-            "name",
-            "details"
-          ],
-          "icon": {
-            "name": "bank"
-          }
+          "title": "One",
+          "const": 1,
+          "description": "The first number"
         },
         {
-          "title": "Outside Europe",
-          "type": "object",
-          "displayOrder": [
-            "name",
-            "ownedByCustomer",
-            "details",
-            "profileId",
-            "type"
-          ],
-          "properties": {
-            "name": {
-              "type": "object",
-              "displayOrder": [
-                "fullName"
-              ],
-              "properties": {
-                "fullName": {
-                  "title": "Full name of the account holder",
-                  "type": "string",
-                  "validationMessages": {
-                    "minLength": "Name needs to be between 2 and 140 characters long, and contain both first and last name.",
-                    "maxLength": "Recipient name cannot be longer than 140 characters.",
-                    "pattern": "This recipient name may contain invalid characters or is not the full name. Please try again."
-                  },
-                  "autofillProvider": "contact",
-                  "autofillKey": "contact.fullName",
-                  "pattern": "^ *[0-9A-Za-zÀ-ÖØ-öø-ÿ-_()'*,.]+ +[0-9A-Za-zÀ-ÖØ-öø-ÿ-_()'*,.]+([0-9A-Za-zÀ-ÖØ-öø-ÿ-_()'*,. ]*)$",
-                  "minLength": 2,
-                  "maxLength": 140
-                }
-              },
-              "required": [
-                "fullName"
-              ]
-            },
-            "ownedByCustomer": {
-              "title": "My own Account",
-              "type": "boolean"
-            },
-            "details": {
-              "type": "object",
-              "displayOrder": [
-                "bic",
-                "accountNumber"
-              ],
-              "properties": {
-                "bic": {
-                  "title": "Bank code (BIC/SWIFT)",
-                  "type": "string",
-                  "placeholder": "BUKBGB22",
-                  "validationMessages": {
-                    "minLength": "The BIC you have entered is too short.",
-                    "maxLength": "The BIC you have entered is too long.",
-                    "pattern": "Please specify a valid BIC.",
-                    "required": "Please specify a BIC."
-                  },
-                  "refreshFormOnChange": true,
-                  "pattern": "^[a-zA-Z]{6}(([a-zA-Z0-9]{2})|([a-zA-Z0-9]{5}))$",
-                  "minLength": 8,
-                  "maxLength": 11
-                },
-                "accountNumber": {
-                  "title": "Account Number",
-                  "type": "string",
-                  "placeholder": "123456789012",
-                  "validationMessages": {
-                    "minLength": "Account number is too short. Please enter a valid account number.",
-                    "maxLength": "Account number is too large. Please enter a valid account number.",
-                    "pattern": "Please enter a valid account number.",
-                    "required": "Please enter an IBAN or account number."
-                  },
-                  "pattern": "^[a-zA-Z0-9]{4,34}$",
-                  "minLength": 4,
-                  "maxLength": 34
-                }
-              },
-              "required": [
-                "bic",
-                "accountNumber"
-              ],
-              "alert": {
-                "context": "warning",
-                "markdown": "To send money to this account, we need to use the SWIFT network. It’s slower, so the transfer might take 2-5 days longer. Also note that intermediary banks and your recipient’s bank might charge extra fees to the amount received."
-              }
-            },
-            "profileId": {
-              "title": "profileId",
-              "type": "string",
-              "hidden": true
-            },
-            "type": {
-              "title": "Type",
-              "type": "string",
-              "hidden": true,
-              "const": "SwiftCode"
-            }
-          },
-          "required": [
-            "type",
-            "name",
-            "details"
-          ],
-          "icon": {
-            "name": "bank"
-          }
+          "title": "Two",
+          "const": 2,
+          "description": "The second number"
+        },
+        {
+          "title": "Three",
+          "const": 3,
+          "description": "The third number",
+          "disabled": true
         }
-      ],
-      "control": "select"
+      ]
     }
-  ]
+  },
+  "required": ["number", "string", "select"]
 }

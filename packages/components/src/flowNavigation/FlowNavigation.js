@@ -23,16 +23,19 @@ import './FlowNavigation.css';
  * */
 const FlowNavigation = ({ avatar, steps, activeStep, onClose, onGoBack, showStepper, theme }) => {
   const closeButton = onClose && <CloseButton onClick={onClose} />;
+
   return (
     <Header
       leftContent={
         <div className="m-lg-t-1">
           <Logo theme={theme} type={Logo.Type.FULL} className="hidden-xs" />
-          {onGoBack ? (
-            <BackButton steps={steps} activeStep={activeStep} onGoBack={onGoBack} />
-          ) : (
-            <Logo theme={theme} type={Logo.Type.FLAG} className="visible-xs" />
-          )}
+          <div className="visible-xs">
+            {onGoBack ? (
+              <BackButton onClick={onGoBack} label={steps[activeStep].label} />
+            ) : (
+              <Logo theme={theme} type={Logo.Type.FLAG} />
+            )}
+          </div>
         </div>
       }
       rightContent={

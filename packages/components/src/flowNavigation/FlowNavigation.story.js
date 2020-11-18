@@ -14,6 +14,7 @@ export const basic = () => {
   const done = boolean('done', false);
   const theme = select('theme', Object.values(FlowNavigation.Theme), FlowNavigation.Theme.LIGHT);
   const profileType = select('profileType', ['BUSINESS', 'PERSONAL'], 'PERSONAL');
+  const onGoBack = boolean('onGoBack', true);
 
   return (
     <FlowNavigation
@@ -27,7 +28,7 @@ export const basic = () => {
       // avatarUrl="https://github.com/transferwise.png"
       done={done}
       // profileType={profileType}
-      onGoBack={action('go back')}
+      onGoBack={onGoBack && action('go back')}
       showStepper={!done && theme !== FlowNavigation.Theme.DARK}
       theme={theme}
       steps={[

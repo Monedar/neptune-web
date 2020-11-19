@@ -24,7 +24,7 @@ const BackButton = ({ label, className, onClick }) => (
 
 BackButton.propTypes = {
   className: Types.string,
-  label: Types.string,
+  label: Types.element,
   onClick: Types.func.isRequired,
 };
 

@@ -1,0 +1,46 @@
+@import (reference) '@transferwise/neptune-css/src/variables/neptune-tokens.less';
+@import (reference) '@transferwise/neptune-css/src/less/variables/_typography.less';
+
+@transition-timing-function: ease-in-out;
+@transition-duration: 0.3s;
+@short-transition-duration: 0.15s;
+
+.np-animated-label {
+  @slide-length: 8px;
+  position: absolute;
+  white-space: nowrap;
+  transition: all @transition-duration @transition-timing-function @short-transition-duration;
+  left: var(--size-32);
+  &-enter {
+    opacity: 0;
+    transform: translateX(@slide-length);
+
+    &.np-animated-label--backward {
+      transform: translateX(-@slide-length);
+    }
+  }
+
+  &-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+
+    &.np-animated-label--backward {
+      transform: translateX(0);
+    }
+  }
+
+  &-exit {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transform: translateX(-@slide-length);
+    transition: all @transition-duration @transition-timing-function;
+
+    &.np-animated-label--backward {
+      transform: translateX(@slide-length);
+    }
+  }
+}

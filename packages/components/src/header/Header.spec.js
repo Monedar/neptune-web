@@ -11,6 +11,6 @@ describe('Header', () => {
       className: 'className',
     };
     const component = shallow(<Header {...props} />);
-    expect(component.debug()).toMatchSnapshot();
+    expect(component.html()).toMatchSnapshot();
   });
 });

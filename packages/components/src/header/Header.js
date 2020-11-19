@@ -2,32 +2,52 @@ import React from 'react';
 import Types from 'prop-types';
 import classNames from 'classnames';
 
-const Header = ({ leftContent, rightContent, bottomContent, className }) => (
-  <div className={classNames(className)}>
-    <div className="container">
-      <div className="row p-t-3 ">
-        <div className="col-lg-2 col-xs-6">{leftContent}</div>
-        <div className="col-lg-2 col-xs-6 col-lg-push-8 text-xs-right">{rightContent}</div>
-        <div className="col-xs-12 col-lg-6 col-lg-pull-2 col-lg-offset-1 p-x-0">
-          {bottomContent}
-        </div>
+const Header = ({ bottomContent, className, layout, leftContent, rightContent }) => {
+  const isVertical = layout === 'vertical';
+  return (
+    <div className={classNames('d-flex', 'flex-wrap', 'np-header', className)}>
+      <div
+        className={classNames('align-items-center', 'd-flex', 'justify-content-start', {
+          'flex__item--6': isVertical,
+        })}
+      >
+        {leftContent}
+      </div>
+
+      <div
+        className={classNames('align-items-center', 'd-flex', 'justify-content-end', {
+          'flex__item--6 ': isVertical,
+          'order-2': !isVertical,
+        })}
+      >
+        {rightContent}
+      </div>
+      <div
+        className={classNames('align-items-center', 'd-flex', 'justify-content-center', {
+          'flex__item--12': isVertical,
+          'order-1 flex-grow-1': !isVertical,
+        })}
+      >
+        {bottomContent}
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 Header.defaultProps = {
-  leftContent: null,
-  rightContent: null,
   bottomContent: null,
   className: null,
+  layout: null,
+  leftContent: null,
+  rightContent: null,
 };
 
 Header.propTypes = {
-  leftContent: Types.node,
-  rightContent: Types.node,
   bottomContent: Types.node,
   className: Types.string,
+  layout: Types.oneOf(['vertical']),
+  leftContent: Types.node,
+  rightContent: Types.node,
 };
 
 export default Header;

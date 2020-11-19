@@ -17,7 +17,7 @@ const BackButton = ({ label, className, onClick }) => (
     )}
     onClick={onClick}
   >
-    <ArrowLeftIcon size={24} className="m-r-1" />
+    <ArrowLeftIcon size={24} />
     {label}
   </button>
 );

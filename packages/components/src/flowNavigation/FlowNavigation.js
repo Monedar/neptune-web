@@ -3,11 +3,13 @@ import Types from 'prop-types';
 import classNames from 'classnames';
 import CloseButton from '../common/CloseButton';
 import BackButton from './backButton';
+import AnimatedLabel from './animatedLabel';
 
 import Logo from './logo';
 import Stepper from '../stepper';
 import Header from '../header';
 import { Theme } from '../common';
+import { usePrevious } from '../common/hooks';
 
 import './FlowNavigation.css';
 
@@ -21,8 +23,10 @@ import './FlowNavigation.css';
  * @param {string} [theme=FlowNavigation.Theme.LIGHT] - Theme to use
  * @usage `<FlowNavigation activeStep={activeStep} onClose={callback} avatarUrl={someUrl} done={done}  onGoBack={callback} theme={OverlayHeader.Theme.LIGHT} steps={steps} />`
  * */
+
 const FlowNavigation = ({ avatar, steps, activeStep, onClose, onGoBack, showStepper, theme }) => {
   const closeButton = onClose && <CloseButton onClick={onClose} />;
+  const prev = usePrevious(activeStep);
 
   return (
     <Header
@@ -31,7 +35,16 @@ const FlowNavigation = ({ avatar, steps, activeStep, onClose, onGoBack, showStep
           <Logo theme={theme} type={Logo.Type.FULL} className="hidden-xs" />
           <div className="visible-xs">
             {onGoBack ? (
-              <BackButton onClick={onGoBack} label={steps[activeStep].label} />
+              <BackButton
+                onClick={onGoBack}
+                label={
+                  <AnimatedLabel
+                    labels={steps.map((step) => step.label)}
+                    activeStep={activeStep}
+                    backward={activeStep < prev}
+                  />
+                }
+              />
             ) : (
               <Logo theme={theme} type={Logo.Type.FLAG} />
             )}

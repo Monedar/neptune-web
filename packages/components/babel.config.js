@@ -83,9 +83,7 @@ module.exports = {
       'react-intl',
       {
         idInterpolationPattern: '[sha512:contenthash:base64:6]',
-        extractFromFormatMessageCall: true,
         removeDefaultMessage: true,
-        ast: true,
       },
     ],
   ],

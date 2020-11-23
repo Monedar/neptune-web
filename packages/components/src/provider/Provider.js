@@ -18,15 +18,19 @@ function createIntlInstance(locale, messages) {
 }
 
 function Provider({ locale, children }) {
+  let currentLocale = locale;
   const [intl, setIntl] = useState(createIntlInstance(defaultLocale, en));
 
   useEffect(() => {
     (async function changeLanguage() {
-      try {
-        const newMessages = await import(`../../lang/${locale}.json`);
-        setIntl(createIntlInstance(locale, newMessages));
-      } catch (e) {
-        setIntl(createIntlInstance(locale, en));
+      if (currentLocale !== locale) {
+        currentLocale = locale;
+        try {
+          const newMessages = await import(`../../lang/${locale}.json`);
+          setIntl(createIntlInstance(locale, newMessages));
+        } catch (e) {
+          setIntl(createIntlInstance(locale, en));
+        }
       }
     })();
   }, [locale]);

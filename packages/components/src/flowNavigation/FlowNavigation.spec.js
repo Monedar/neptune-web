@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import FlowNavigation from '.';
+import { FlowNavigation, Provider } from '..';
 import BackButton from './backButton';
 import Logo from './logo';
 
@@ -51,7 +51,7 @@ describe('Flow navigation', () => {
       onGoBack: jest.fn(),
     };
 
-    component = mount(<FlowNavigation {...props} />);
+    component = mount(<FlowNavigation {...props} />, { wrappingComponent: Provider });
   });
 
   it('passes steps and active step to stepper', () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Logo from '../flowNavigation/logo';
 
-import OverlayHeader from '.';
+import { OverlayHeader, Provider } from '..';
 
 describe('Overlay header', () => {
   let component;
@@ -35,7 +35,7 @@ describe('Overlay header', () => {
       onClose: jest.fn(),
     };
 
-    component = mount(<OverlayHeader {...props} />);
+    component = mount(<OverlayHeader {...props} />, { wrappingComponent: Provider });
   });
 
   it('passes avatar url and profile type to avatar', () => {

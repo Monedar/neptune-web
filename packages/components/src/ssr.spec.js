@@ -92,6 +92,7 @@ describe('Server side rendering', () => {
     },
   };
 
+  const { Provider } = components;
   componentNames.forEach((componentName) => {
     it(`works for ${componentName} components`, () => {
       const Component = components[componentName];
@@ -104,11 +105,13 @@ describe('Server side rendering', () => {
       }
 
       const string = renderToString(
-        componentName.endsWith('Context') ? (
-          <Component.Provider {...newProps} />
-        ) : (
-          <Component {...newProps} />
-        ),
+        <Provider>
+          {componentName.endsWith('Context') ? (
+            <Component.Provider {...newProps} />
+          ) : (
+            <Component {...newProps} />
+          )}
+        </Provider>,
       );
       expect(string).toEqual(expect.any(String));
     });

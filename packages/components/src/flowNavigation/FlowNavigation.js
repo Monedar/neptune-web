@@ -1,12 +1,13 @@
 import React, { useRef } from 'react';
 import Types from 'prop-types';
 import classNames from 'classnames';
-import CloseButton from '../common/CloseButton';
-import BackButton from './backButton';
-import AnimatedLabel from './animatedLabel';
-import Logo from './logo';
-import Stepper from '../stepper';
 import Header from '../header';
+import Stepper from '../stepper';
+import AnimatedLabel from './animatedLabel';
+import BackButton from './backButton';
+import CloseButton from '../common/closeButton';
+import Logo from '../common/logo';
+
 import { Theme, Breakpoint } from '../common';
 import { usePrevious, useClientWidth } from '../common/hooks';
 
@@ -17,11 +18,10 @@ const FlowNavigation = ({ avatar, stepper: { steps, activeStep }, onClose, onGoB
   const ref = useRef(null);
 
   const [clientWidth] = useClientWidth({ ref });
-
   const closeButton = onClose && <CloseButton onClick={onClose} />;
-  console.log(clientWidth);
-  const getMobileContent = () =>
-    onGoBack ? (
+
+  const getMobileLeftContent = () =>
+    onGoBack && activeStep ? (
       <BackButton
         onClick={onGoBack}
         label={
@@ -43,7 +43,7 @@ const FlowNavigation = ({ avatar, stepper: { steps, activeStep }, onClose, onGoB
       leftContent={
         <>
           <Logo type={Logo.Type.FULL} className="hidden-xs" />
-          <div className="visible-xs">{getMobileContent()}</div>
+          <div className="visible-xs">{getMobileLeftContent()}</div>
         </>
       }
       rightContent={
@@ -74,7 +74,12 @@ FlowNavigation.defaultProps = {
 };
 
 FlowNavigation.propTypes = {
+  /** The user or business avatar */
   avatar: Types.node,
+  /** Function called when the close is clicked */
+  onClose: Types.func,
+  /** Function called on mobile view when the backButton is clicked */
+  onGoBack: Types.func,
   /** Contains the steps to be displayed and the current active Steps. If stepper is not needed please use OverlayHeader */
   stepper: Types.shape({
     activeStep: Types.number,
@@ -86,9 +91,6 @@ FlowNavigation.propTypes = {
       }),
     ),
   }).isRequired,
-
-  onGoBack: Types.func,
-  onClose: Types.func,
 };
 
 export default FlowNavigation;

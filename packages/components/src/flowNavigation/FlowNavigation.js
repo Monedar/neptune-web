@@ -35,7 +35,7 @@ const FlowNavigation = ({ avatar, stepper: { steps, activeStep }, onClose, onGoB
 
   return (
     <Header
-      className="tw-flow-navigation"
+      className="np-flow-navigation"
       leftContent={
         <>
           <Logo type={Logo.Type.FULL} className="hidden-xs" />
@@ -53,7 +53,7 @@ const FlowNavigation = ({ avatar, stepper: { steps, activeStep }, onClose, onGoB
         <Stepper
           activeStep={activeStep}
           steps={steps}
-          className={classNames('tw-flow-navigation__stepper m-t-1')}
+          className={classNames('np-flow-navigation__stepper m-t-1')}
         />
       }
     />

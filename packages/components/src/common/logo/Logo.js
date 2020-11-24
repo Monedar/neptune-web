@@ -1,7 +1,7 @@
 import React from 'react';
 import Types from 'prop-types';
 import classNames from 'classnames';
-import { Theme } from '../../common';
+import { Theme } from '..';
 import './Logo.css';
 
 const Logo = ({ className, theme, type }) => {

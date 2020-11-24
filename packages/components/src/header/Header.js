@@ -2,10 +2,11 @@ import React from 'react';
 import Types from 'prop-types';
 import classNames from 'classnames';
 
-const Header = ({ bottomContent, className, layout, leftContent, rightContent }) => {
+const Header = React.forwardRef((props, ref) => {
+  const { bottomContent, className, layout, leftContent, rightContent } = props;
   const isVertical = layout === 'vertical';
   return (
-    <div className={classNames('d-flex', 'flex-wrap', 'np-header', className)}>
+    <div className={classNames('d-flex', 'flex-wrap', 'np-header', className)} ref={ref}>
       <div
         className={classNames('align-items-center', 'd-flex', 'justify-content-start', {
           'flex__item--6': isVertical,
@@ -32,7 +33,7 @@ const Header = ({ bottomContent, className, layout, leftContent, rightContent })
       </div>
     </div>
   );
-};
+});
 
 Header.defaultProps = {
   bottomContent: null,

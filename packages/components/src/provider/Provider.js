@@ -17,8 +17,9 @@ function createIntlInstance(locale, messages) {
   );
 }
 
+let currentLocale = '';
+
 function Provider({ locale, children }) {
-  let currentLocale = locale;
   const [intl, setIntl] = useState(createIntlInstance(defaultLocale, en));
 
   useEffect(() => {

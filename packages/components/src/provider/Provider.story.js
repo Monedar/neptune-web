@@ -1,18 +1,20 @@
 import React from 'react';
 import { select } from '@storybook/addon-knobs';
+import { FormattedMessage } from 'react-intl';
+
 import Provider from './Provider';
-import CloseButton from '../common/CloseButton';
+import closeButtonMessages from '../common/CloseButton/CloseButton.messages';
 
 export default {
   component: Provider,
-  title: 'NeptuneProvider',
+  title: 'Provider',
 };
 
 export const basic = () => {
   const locale = select('locale', ['en', 'fr', 'pl'], 'en');
   return (
     <Provider locale={locale}>
-      <CloseButton onClick={() => {}} />
+      <FormattedMessage {...closeButtonMessages.ariaLabel} />
     </Provider>
   );
 };

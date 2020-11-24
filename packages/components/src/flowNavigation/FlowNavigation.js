@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Types from 'prop-types';
 import classNames from 'classnames';
 import CloseButton from '../common/CloseButton';
 import BackButton from './backButton';
 import AnimatedLabel from './animatedLabel';
-
 import Logo from './logo';
 import Stepper from '../stepper';
 import Header from '../header';
-import { Theme } from '../common';
-import { usePrevious } from '../common/hooks';
+import { Theme, Breakpoint } from '../common';
+import { usePrevious, useClientWidth } from '../common/hooks';
 
 import './FlowNavigation.css';
 
 const FlowNavigation = ({ avatar, stepper: { steps, activeStep }, onClose, onGoBack }) => {
-  const closeButton = onClose && <CloseButton onClick={onClose} />;
   const prev = usePrevious(activeStep);
+  const ref = useRef(null);
 
+  const [clientWidth] = useClientWidth({ ref });
+
+  const closeButton = onClose && <CloseButton onClick={onClose} />;
+  console.log(clientWidth);
   const getMobileContent = () =>
     onGoBack ? (
       <BackButton
@@ -35,6 +38,7 @@ const FlowNavigation = ({ avatar, stepper: { steps, activeStep }, onClose, onGoB
 
   return (
     <Header
+      ref={ref}
       className="np-flow-navigation"
       leftContent={
         <>
@@ -56,6 +60,7 @@ const FlowNavigation = ({ avatar, stepper: { steps, activeStep }, onClose, onGoB
           className={classNames('np-flow-navigation__stepper m-t-1')}
         />
       }
+      layout={clientWidth < Breakpoint.MEDIUM ? 'vertical' : 'horizontal'}
     />
   );
 };

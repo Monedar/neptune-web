@@ -1,45 +1,47 @@
 () => {
-  const [activeStep, setActiveStep] = React.useState(1);
-  const updateActiveStep = (step) => () => setActiveStep(step);
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [closed, setClosed] = React.useState(false);
 
-  return (
+  return !closed ? (
     <FlowNavigation
-      activeStep={activeStep}
-      onClose={() => alert('Close clicked')}
-      avatarUrl="https://github.com/transferwise.png"
-      done={false}
-      profileType={FlowNavigation.ProfileType.BUSINESS}
-      theme={FlowNavigation.Theme.LIGHT}
-      onGoBack={() => alert('If onGoBack is null, the arrow is replaced with a flag')}
-      showCloseButton
-      steps={[
-        {
-          label: 'Amount',
-          hoverLabel: (
-            <>
-              <div>
-                <strong>100 GBP</strong>
-              </div>
-              0.2351 ETH
-            </>
-          ),
-          onClick: updateActiveStep(0),
-        },
-        {
-          label: 'My details',
-          hoverLabel: (
-            <>
-              <div>
-                <strong>Diana Jaramillo</strong>
-              </div>
-              dianajarm123@gmail.com
-            </>
-          ),
-          onClick: updateActiveStep(1),
-        },
-        { label: 'Recipient', hoverLabel: 'Some person/dog', onClick: updateActiveStep(2) },
-        { label: 'Something', hoverLabel: 'Cool', onClick: updateActiveStep(3) },
-      ]}
+      avatar={
+        <Avatar type={Avatar.Type.ICON} size={Avatar.Size.MEDIUM}>
+          <ProfileIcon />
+        </Avatar>
+      }
+      onClose={() => setClosed(true)}
+      onGoBack={() => setActiveStep(activeStep - 1 > 0 ? activeStep - 1 : 0)}
+      stepper={{
+        activeStep,
+        steps: [
+          {
+            label: 'Amount',
+            hoverLabel: (
+              <>
+                <div>
+                  <strong>100 GBP</strong>
+                </div>
+                0.2351 ETH
+              </>
+            ),
+            onClick: () => setActiveStep(0),
+          },
+          {
+            label: 'My details',
+            hoverLabel: (
+              <>
+                <div>
+                  <strong>Elena Durante</strong>
+                </div>
+                elenadurante@test.com
+              </>
+            ),
+            onClick: () => setActiveStep(1),
+          },
+          { label: 'Recipient', hoverLabel: 'Daniele Tomboro', onClick: () => setActiveStep(2) },
+          { label: 'Something', hoverLabel: 'Antonio Dozortevo', onClick: () => setActiveStep(3) },
+        ],
+      }}
     />
-  );
+  ) : null;
 };

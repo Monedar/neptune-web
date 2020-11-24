@@ -1,8 +1,36 @@
 import { LiveEditorBlock, GeneratePropsTable } from '../../../utils';
-import { FlowNavigation } from '@transferwise/components';
+import { FlowNavigation, Avatar } from '@transferwise/components';
+import { Profile as ProfileIcon, Briefcase as BriefcaseIcon } from '@transferwise/icons';
+
 import code from '../../../liveEditorCode/flowNavigation.code';
 
-<LiveEditorBlock code={code} scope={{ FlowNavigation }} display="vertical" />
+<LiveEditorBlock
+  code={code}
+  scope={{ FlowNavigation, Avatar, BriefcaseIcon, ProfileIcon }}
+  display="vertical"
+/>
+
+Please use FlowNavigation to help a user navigate through a flow.
+
+## When to use
+
+Use FlowNavigation inside flows to help customers identify and navigate between a set o steps
+
+## When not to use
+
+Do not use a FlowNavigation if a Stepper does not need to be included. Please use [OverflowHeader](/components/overlays/OverlayHeader) instead
+
+## Anatomy
+
+- Logo - always visible. Displayed as full logo on desktop and a flag version on mobile.
+- BackButton - visible if a `ongoBack` function is provided. It's visible only on mobile.
+- Animated label - visible on mobile replace the stepper's labels and indicate the active step.
+- Avatar - visible if provided and can be a user profile or a business avatar.
+- separator - vsibile if both Avatar and Closebutton are provided. It's vertical line that separates Avatar and closeButton.
+- CloseButton- shows only if a onClose function is provided and it is normally used to close the flow.
+- Stepper - always visible helps the user to navigate back and forth the flow and indicate the active step.
+- BorderBottom - always visible and associated with the presence of the stepper
+
 <GeneratePropsTable componentName="FlowNavigation" />
 
 export const meta = {

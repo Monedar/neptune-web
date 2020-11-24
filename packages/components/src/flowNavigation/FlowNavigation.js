@@ -13,55 +13,49 @@ import { usePrevious } from '../common/hooks';
 
 import './FlowNavigation.css';
 
-/**
- * FlowNavigation is a header component that provides a logo, avatar and close button, for use in overlay screens.
- *
- * @param {array} [steps] - The step to be displayed in the stepper and used by the backButton.
- * @param {number} [activeStep] - current selected step.
- * @param {function} [onClose] - Callback for the close button. If not present, no close button will be rendered.
- * @param {function} [onGoBack] - Callback for the BackButton. If not provided BackButton won't be displayed and Logo compact will display instead from mobile views.
- * @param {string} [theme=FlowNavigation.Theme.LIGHT] - Theme to use
- * @usage `<FlowNavigation activeStep={activeStep} onClose={callback} avatarUrl={someUrl} done={done}  onGoBack={callback} theme={OverlayHeader.Theme.LIGHT} steps={steps} />`
- * */
-
-const FlowNavigation = ({ avatar, steps, activeStep, onClose, onGoBack, showStepper, theme }) => {
+const FlowNavigation = ({ avatar, stepper: { steps, activeStep }, onClose, onGoBack }) => {
   const closeButton = onClose && <CloseButton onClick={onClose} />;
   const prev = usePrevious(activeStep);
 
+  const getMobileContent = () =>
+    onGoBack ? (
+      <BackButton
+        onClick={onGoBack}
+        label={
+          <AnimatedLabel
+            labels={steps.map((step) => step.label)}
+            activeStep={activeStep}
+            backward={activeStep < prev}
+          />
+        }
+      />
+    ) : (
+      <Logo type={Logo.Type.FLAG} />
+    );
+
   return (
     <Header
+      className="tw-flow-navigation"
       leftContent={
-        <div className="m-lg-t-1">
-          <Logo theme={theme} type={Logo.Type.FULL} className="hidden-xs" />
-          <div className="visible-xs">
-            {onGoBack ? (
-              <BackButton
-                onClick={onGoBack}
-                label={
-                  <AnimatedLabel
-                    labels={steps.map((step) => step.label)}
-                    activeStep={activeStep}
-                    backward={activeStep < prev}
-                  />
-                }
-              />
-            ) : (
-              <Logo theme={theme} type={Logo.Type.FLAG} />
-            )}
-          </div>
-        </div>
+        <>
+          <Logo type={Logo.Type.FULL} className="hidden-xs" />
+          <div className="visible-xs">{getMobileContent()}</div>
+        </>
       }
       rightContent={
-        <div className="tw-flow-navigation__right-content m-lg-t-1">
+        <>
           {avatar}
-          {avatar && closeButton && <span className="separator m-a-2" />}
+          {avatar && closeButton && <span className="separator" />}
           {closeButton}
-        </div>
+        </>
       }
-      bottomContent={showStepper && <Stepper activeStep={activeStep} steps={steps} />}
-      className={classNames('tw-flow-navigation', 'tw-flow-navigation__wrapper', {
-        'tw-flow-navigation--show-border': showStepper,
-      })}
+      bottomContent={
+        <Stepper
+          activeStep={activeStep}
+          steps={steps}
+          className={classNames('tw-flow-navigation__stepper m-t-1')}
+        />
+      }
     />
   );
 };
@@ -69,28 +63,27 @@ const FlowNavigation = ({ avatar, steps, activeStep, onClose, onGoBack, showStep
 FlowNavigation.Theme = Theme;
 
 FlowNavigation.defaultProps = {
-  activeStep: 0,
   avatar: null,
   onGoBack: null,
   onClose: null,
-  showStepper: true,
-  theme: Theme.LIGHT,
 };
 
 FlowNavigation.propTypes = {
   avatar: Types.node,
-  showStepper: Types.bool,
-  steps: Types.arrayOf(
-    Types.shape({
-      label: Types.node.isRequired,
-      onClick: Types.func,
-      hoverLabel: Types.node,
-    }),
-  ).isRequired,
-  activeStep: Types.number,
+  /** Contains the steps to be displayed and the current active Steps. If stepper is not needed please use OverlayHeader */
+  stepper: Types.shape({
+    activeStep: Types.number,
+    steps: Types.arrayOf(
+      Types.shape({
+        label: Types.node.isRequired,
+        onClick: Types.func,
+        hoverLabel: Types.node,
+      }),
+    ),
+  }).isRequired,
+
   onGoBack: Types.func,
   onClose: Types.func,
-  theme: Types.oneOf([FlowNavigation.Theme.LIGHT, FlowNavigation.Theme.DARK]),
 };
 
 export default FlowNavigation;

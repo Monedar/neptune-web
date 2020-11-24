@@ -31,7 +31,7 @@
     "build:es-nopolyfill": "NODE_ENV=es-nopolyfill babel src -d build/es/no-polyfill --ignore '**/*.spec.js','**/*.story.js','**/__mocks__','**/test-utils'",
     "build:copy-files": "cpx 'src/**/!(db)/*.{css,json,svg}' build/es/polyfill",
     "build:copy-files2": "cpx 'src/**/!(db)/*.{css,json,svg}' build/es/no-polyfill",
-    "build:copy-lang": "cpx 'lang/*' build/es/lang",
+    "build:copy-lang": "cpx 'lang/*.json' build/es/lang & cpx 'lang/*.json' build/lang",
     "docs": "yarn build",
     "test": "jest --env=jsdom --runInBand --config=../../node_modules/@transferwise/test-config/jest.config.js && yarn test:lint",
     "test:watch": "jest --watch --env=jsdom --config=../../node_modules/@transferwise/test-config/jest.config.js",

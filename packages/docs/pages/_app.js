@@ -5,6 +5,7 @@ import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
 import Router from 'next/router';
+import { Provider } from '@transferwise/components';
 import Layout from '../components/Layout';
 import '@transferwise/neptune-css/dist/css/neptune.css';
 import '@transferwise/icons/lib/styles/main.min.css';
@@ -32,7 +33,7 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <>
+      <Provider locale="fr">
         <Head>
           <title>Neptune Design System — TransferWise</title>
         </Head>
@@ -40,7 +41,7 @@ class MyApp extends App {
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </>
+      </Provider>
     );
   }
 }

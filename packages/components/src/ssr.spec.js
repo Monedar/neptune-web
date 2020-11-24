@@ -73,6 +73,7 @@ describe('Server side rendering', () => {
 
   // Override props in case of name collision.
   const overrideProps = {
+    Alert: { children: undefined, message: 'Fluffy kittens', size: undefined },
     Card: { isExpanded: true },
     Typeahead: { size: 'md' },
     InputWithDisplayFormat: { displayPattern: '**-**' },
@@ -94,6 +95,7 @@ describe('Server side rendering', () => {
     },
     Summary: {
       status: 'done',
+      content: undefined,
     },
     Tile: {
       media: <img alt="img" />,

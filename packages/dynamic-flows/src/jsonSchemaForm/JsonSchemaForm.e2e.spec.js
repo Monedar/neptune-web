@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { Alert, Checkbox, Radio, Select } from '@transferwise/components';
+import { InlineAlert, Checkbox, Radio, Select } from '@transferwise/components';
 
 import JsonSchemaForm from '.';
 
@@ -123,7 +123,7 @@ describe('E2E: Given a component for rendering a JSON schema form', () => {
     });
 
     it('should render an error', () => {
-      expect(component.find(Alert).contains(errors.string)).toBe(true);
+      expect(component.find(InlineAlert).contains(errors.string)).toBe(true);
     });
 
     it('should broadcast a change for the const', () => {

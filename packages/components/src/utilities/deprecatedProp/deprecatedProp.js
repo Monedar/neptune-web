@@ -1,19 +1,36 @@
-const deprecatedMessage = ({ component, propName, newProp, expiryDate }) => {
-  const newPropMessage = newProp ? ` Please use ${newProp} instead.` : '';
-  return `${component} has deprecated the use of ${propName}.${newPropMessage} ${propName} will be removed on or after ${expiryDate.toLocaleString(
-    'en-GB',
-    { year: 'numeric', month: 'numeric', day: 'numeric' },
-  )}`;
+import { logActionRequired } from '..';
+
+const deprecatedMessage = ({ component, propName, message, expiryDate }) => {
+  const messages = [`${component} has deprecated the use of ${propName}.`];
+
+  if (message) {
+    messages.push(message);
+  }
+
+  if (expiryDate) {
+    messages.push(
+      `${propName} will be removed on or after ${expiryDate.toLocaleString('en-GB', {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+      })}`,
+    );
+  }
+
+  return messages.join(' ');
 };
 
-const deprecated = (validator, { component, newProp = '', expiryDate = null }) => (
+const deprecated = (validator, { component, message = '', newProp = null, expiryDate = null }) => (
   props,
   propName,
   ...rest
 ) => {
+  const newPropMessage = newProp ? `Please use ${newProp} instead.` : message;
+
   if (props[propName] != null && typeof props[propName] !== 'undefined') {
-    // eslint-disable-next-line
-    console.warn(deprecatedMessage({ component, propName, newProp, expiryDate }));
+    logActionRequired(
+      deprecatedMessage({ component, propName, message: newPropMessage, expiryDate }),
+    );
   }
   return validator(props, propName, ...rest);
 };

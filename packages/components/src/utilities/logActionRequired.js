@@ -1,5 +1,5 @@
 export function logActionRequired(message) {
-  if (process?.env?.NODE_ENV === 'development') {
+  if (['development', 'test'].indexOf(process?.env?.NODE_ENV) >= 0) {
     // eslint-disable-next-line
     console.warn(message);
   }

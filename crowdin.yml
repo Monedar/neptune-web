@@ -5,18 +5,18 @@ files:
     translation: /lang/%two_letters_code%.%file_extension%
     languages_mapping:
       two_letters_code:
-        fr: 'fr'
-        hu: 'hu'
-        es-ES: 'es'
-        tr: 'tr'
-        en-GB: 'en'
-        pt-BR: 'pt'
-        it: 'it'
-        de: 'de'
-        ru: 'ru'
-        pl: 'pl'
-        ro: 'ro'
-        ja: 'ja'
-        zh-HK: 'hk'
-        cs: 'cs'
+        fr: fr
+        hu: hu
+        es-ES: es
+        tr: tr
+        en-GB: en
+        pt-BR: pt
+        it: it
+        de: de
+        ru: ru
+        pl: pl
+        ro: ro
+        ja: ja
+        zh-HK: hk
+        cs: cs
     update_option: update_as_unapproved

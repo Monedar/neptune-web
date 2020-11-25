@@ -20,8 +20,6 @@ const FlowNavigation = ({ avatar, stepper: { steps, activeStep }, onClose, onGoB
   const [clientWidth] = useClientWidth({ ref });
   const closeButton = onClose && <CloseButton onClick={onClose} />;
 
-  console.log('clientWidth', clientWidth);
-
   const getMobileLeftContent = () =>
     onGoBack && activeStep ? (
       <BackButton

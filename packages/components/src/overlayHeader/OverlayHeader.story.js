@@ -1,5 +1,5 @@
 import React from 'react';
-import { select } from '@storybook/addon-knobs';
+import { select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { Profile as ProfileIcon, Briefcase as BriefcaseIcon } from '@transferwise/icons';
 import OverlayHeader from './OverlayHeader';
@@ -10,9 +10,10 @@ export default {
   title: 'OverlayHeader',
 };
 
-export const withProfileIcon = () => {
+export const basic = () => {
   const theme = select('theme', Object.values(OverlayHeader.Theme), OverlayHeader.Theme.LIGHT);
-
+  const isBusiness = boolean('isBusiness', false);
+  const showAvatar = boolean('showAvatar', true);
   return (
     <div
       style={{ background: theme === OverlayHeader.Theme.DARK ? '#37517e' : 'white' }}
@@ -21,30 +22,11 @@ export const withProfileIcon = () => {
       <OverlayHeader
         onClose={action('Close clicked')}
         avatar={
-          <Avatar type={Avatar.Type.ICON} size={Avatar.Size.MEDIUM}>
-            <ProfileIcon />
-          </Avatar>
-        }
-        theme={theme}
-      />
-    </div>
-  );
-};
-
-export const withBusinessIcon = () => {
-  const theme = select('theme', Object.values(OverlayHeader.Theme), OverlayHeader.Theme.LIGHT);
-
-  return (
-    <div
-      style={{ background: theme === OverlayHeader.Theme.DARK ? '#37517e' : 'white' }}
-      className="p-a-2"
-    >
-      <OverlayHeader
-        onClose={action('Close clicked')}
-        avatar={
-          <Avatar type={Avatar.Type.ICON} size={Avatar.Size.MEDIUM}>
-            <BriefcaseIcon />
-          </Avatar>
+          showAvatar ? (
+            <Avatar type={Avatar.Type.ICON} size={Avatar.Size.MEDIUM}>
+              {isBusiness ? <BriefcaseIcon /> : <ProfileIcon />}
+            </Avatar>
+          ) : null
         }
         theme={theme}
       />

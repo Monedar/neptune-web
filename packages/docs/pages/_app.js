@@ -33,7 +33,7 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Provider locale="fr">
+      <Provider>
         <Head>
           <title>Neptune Design System — TransferWise</title>
         </Head>

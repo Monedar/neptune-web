@@ -101,11 +101,5 @@
   },
   "resolutions": {
     "@storybook/**/kind-of": "^6.0.3"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
   }
 }

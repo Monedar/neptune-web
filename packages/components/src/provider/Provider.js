@@ -23,17 +23,17 @@ function Provider({ locale, children }) {
   const [intl, setIntl] = useState(createIntlInstance(defaultLocale, en));
 
   useEffect(() => {
-    (async function changeLanguage() {
-      if (currentLocale !== locale) {
-        currentLocale = locale;
+    if (currentLocale !== locale) {
+      currentLocale = locale;
+      (async function changeLanguage() {
         try {
           const newMessages = await import(`../../lang/${locale}.json`);
           setIntl(createIntlInstance(locale, newMessages));
         } catch (e) {
           setIntl(createIntlInstance(locale, en));
         }
-      }
-    })();
+      })();
+    }
   }, [locale]);
 
   return <RawIntlProvider value={intl}>{children}</RawIntlProvider>;

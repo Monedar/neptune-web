@@ -1,11 +1,9 @@
 import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
-import { Provider } from '../index';
+import { Provider } from '..';
 
 /**
- * Custom `render` function which wraps each component in Provider
- *
- * For more info check RTL docs: https://testing-library.com/docs/example-react-intl/#creating-a-custom-render-function
+ * Custom `render` function which wraps passed elements in Provider component
  */
 function render(ui, { locale = 'en', ...renderOptions } = {}) {
   // eslint-disable-next-line react/prop-types

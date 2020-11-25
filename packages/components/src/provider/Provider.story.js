@@ -13,7 +13,7 @@ export default {
 export const basic = () => {
   const locale = select('locale', ['en', 'fr', 'pl'], 'en');
   return (
-    <Provider locale={locale}>
+    <Provider {...{ locale }}>
       <FormattedMessage {...closeButtonMessages.ariaLabel} />
     </Provider>
   );

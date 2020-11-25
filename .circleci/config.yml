@@ -96,11 +96,11 @@ jobs:
       - *persist-workspace
 
   visual-regression:
-  <<: *container
-  steps:
-    - *attach-workspace
-    - run: *visual-regression
-    - *persist-workspace
+    <<: *container
+    steps:
+      - *attach-workspace
+      - run: *visual-regression
+      - *persist-workspace
 
   deploy-docs:
     <<: *container

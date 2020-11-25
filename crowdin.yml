@@ -21,4 +21,5 @@ files:
         ja: ja
         zh-HK: hk
         cs: cs
+        id: id
     update_option: update_as_unapproved

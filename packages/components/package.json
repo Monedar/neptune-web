@@ -34,12 +34,12 @@
     "test": "jest --env=jsdom --runInBand --config=../../node_modules/@transferwise/test-config/jest.config.js && yarn test:lint",
     "test:watch": "jest --watch --env=jsdom --config=../../node_modules/@transferwise/test-config/jest.config.js",
     "test:lint": "jest --config ../../node_modules/@transferwise/test-config/test/jest.lint.js",
+    "test:visual": "yarn chromatic CHROMATIC_PROJECT_TOKEN || true",
     "lint": "eslint 'src/**/*.js'",
     "lint:fix": "yarn lint --fix",
     "lintless": "stylelint ./src/**/*.less",
     "lintless:fix": "yarn lintless --fix",
-    "build-storybook": "yarn build && build-storybook -c .storybook -o ./dist/my-component/storybook/",
-    "visual-regression": "yarn chromatic CHROMATIC_PROJECT_TOKEN || true"
+    "build-storybook": "yarn build && build-storybook -c .storybook -o ./dist/my-component/storybook/"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",

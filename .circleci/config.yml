@@ -45,9 +45,9 @@ aliases:
     name: Test packages
     command: yarn test
 
-  - &visual-regression
-    name: Visual Regressiomn test
-    command: yarn visual-regression
+  - &visual-test
+    name: Visual Regression test
+    command: yarn test:visual
 
   - &add-npm-release-token
     name: Set NPM publish token
@@ -95,11 +95,11 @@ jobs:
       - run: *test
       - *persist-workspace
 
-  visual-regression:
+  visual-test:
     <<: *container
     steps:
       - *attach-workspace
-      - run: *visual-regression
+      - run: *visual-test
       - *persist-workspace
 
   deploy-docs:
@@ -167,7 +167,7 @@ workflows:
                 - gh-pages
                 - main
 
-      - hold-visual-regression:
+      - hold-visual-test:
           type: approval
           requires:
             - test
@@ -178,9 +178,9 @@ workflows:
                 - gh-pages
                 - main
 
-      - visual-regression:
+      - visual-test:
           requires:
-            - hold-visual-regression
+            - hold-visual-test
           filters:
             branches:
               ignore:

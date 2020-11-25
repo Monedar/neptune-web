@@ -5,8 +5,9 @@ import classNames from 'classnames';
 const Header = React.forwardRef((props, ref) => {
   const { bottomContent, className, layout, leftContent, rightContent } = props;
   const isVertical = layout === 'vertical';
+
   return (
-    <div className={classNames('d-flex', 'flex-wrap', 'np-header', className)} ref={ref}>
+    <div className={classNames('np-header', 'd-flex', 'flex-wrap', className)} ref={ref}>
       <div
         className={classNames('align-items-center', 'd-flex', 'justify-content-start', {
           'flex__item--6': isVertical,
@@ -46,7 +47,7 @@ Header.defaultProps = {
 Header.propTypes = {
   bottomContent: Types.node,
   className: Types.string,
-  layout: Types.oneOf(['vertical']),
+  layout: Types.oneOf(['vertical', 'horizontal']),
   leftContent: Types.node,
   rightContent: Types.node,
 };

@@ -1,3 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header renders correctly 1`] = `"<div class=\\"d-flex flex-wrap np-header className\\"><div class=\\"align-items-center d-flex justify-content-start\\">leftContent</div><div class=\\"align-items-center d-flex justify-content-end order-2\\">rightContent</div><div class=\\"align-items-center d-flex justify-content-center order-1 flex-grow-1\\">bottomContent</div></div>"`;
+exports[`Header renders as expected 1`] = `
+<div>
+  <div
+    class="np-header d-flex flex-wrap className"
+  >
+    <div
+      class="align-items-center d-flex justify-content-start"
+    >
+      leftContent
+    </div>
+    <div
+      class="align-items-center d-flex justify-content-end order-2"
+    >
+      rightContent
+    </div>
+    <div
+      class="align-items-center d-flex justify-content-center order-1 flex-grow-1"
+    >
+      bottomContent
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header renders as expected for vertical layout 1`] = `
+<div>
+  <div
+    class="np-header d-flex flex-wrap className"
+  >
+    <div
+      class="align-items-center d-flex justify-content-start flex__item--6"
+    >
+      leftContent
+    </div>
+    <div
+      class="align-items-center d-flex justify-content-end flex__item--6 "
+    >
+      rightContent
+    </div>
+    <div
+      class="align-items-center d-flex justify-content-center flex__item--12"
+    >
+      bottomContent
+    </div>
+  </div>
+</div>
+`;

@@ -50,6 +50,11 @@ addDecorator(CenterDecorator);
 addDecorator(StrictModeDecorator);
 addDecorator((storyFn) => <Provider locale="en">{storyFn()}</Provider>);
 addParameters({
+  a11y: {
+    config: {
+      rules: [{ id: 'color-contrast', enabled: false }],
+    },
+  },
   options: {
     theme,
     panelPosition: 'right',

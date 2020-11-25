@@ -13,6 +13,7 @@ const OverlayHeader = ({ avatar, onClose, theme }) => {
   const closeButton = onClose && <CloseButton onClick={onClose} />;
   return (
     <Header
+      className="np-overlay-header"
       leftContent={<Logo theme={theme} />}
       rightContent={
         <>
@@ -21,7 +22,6 @@ const OverlayHeader = ({ avatar, onClose, theme }) => {
           {closeButton}
         </>
       }
-      className="np-overlay-header"
     />
   );
 };

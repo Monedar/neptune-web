@@ -52,14 +52,14 @@ This package has support for i18n.
 
 Define your messages in file `.message.js` next to your component and then just use them in the component.
 
-Later once you define all message(s) and settle with copies send them to translations vendor (Crowdin):
+Later once you define all message(s) and agreed on copies, send them to translations vendor (Crowdin):
  
-1. Run `yarn build`, it will regenerate main source file (`en.json`) out of all `**.message.js` files
-2. Push changes (or only `en.json`) to your remote branch, Crowdin will notice new messages
+1. Run `yarn build` (it will regenerate main source file (`en.json`) out of all `*.message.js` files)
+2. Push changes (or only `en.json`) to your remote branch (this will make Crowdin notice new messages)
 3. Right after that Crowdin will create a PR (where base branch will be your feature branch) with placeholders (English messages) in other translation files
-and will commit into same (or new PR in case you merge the first one) with translated messages as soon as translators translate them.
+and will commit into same PR (or new PR in case you merged the first one) with translated messages as soon as translators translate them.
 
-If you merge your feature PR still not having all translations, Crowdin should create PR for `main` branch.
+If you merge your feature PR still not having all translations (which is okay-ish), Crowdin should do same just for `main` branch.
 
 ## How should I test my changes?
 

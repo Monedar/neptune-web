@@ -20,6 +20,8 @@ const FlowNavigation = ({ avatar, stepper: { steps, activeStep }, onClose, onGoB
   const [clientWidth] = useClientWidth({ ref });
   const closeButton = onClose && <CloseButton onClick={onClose} />;
 
+  console.log('clientWidth', clientWidth);
+
   const getMobileLeftContent = () =>
     onGoBack && activeStep ? (
       <BackButton
@@ -31,9 +33,10 @@ const FlowNavigation = ({ avatar, stepper: { steps, activeStep }, onClose, onGoB
             backward={activeStep < prev}
           />
         }
+        className="visible-xs"
       />
     ) : (
-      <Logo type={Logo.Type.FLAG} />
+      <Logo type={Logo.Type.FLAG} className="visible-xs" />
     );
 
   return (
@@ -43,7 +46,7 @@ const FlowNavigation = ({ avatar, stepper: { steps, activeStep }, onClose, onGoB
       leftContent={
         <>
           <Logo type={Logo.Type.FULL} className="hidden-xs" />
-          <div className="visible-xs">{getMobileLeftContent()}</div>
+          {getMobileLeftContent()}
         </>
       }
       rightContent={

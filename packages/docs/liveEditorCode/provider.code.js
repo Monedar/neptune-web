@@ -13,12 +13,10 @@
         selected={selectedLocale}
         onChange={item => { setLocale(item.value); setSelectedLocale(item) }}
         placeholder="Select locale"
-        searchPlaceholder="Search locale"
-        search
         options={[
           { value: 'en', label: 'English (en)' },
           { value: 'fr', label: 'French (fr)' },
-          { value: 'fr', label: 'French (fr)' },
+          { value: 'pl', label: 'Poland (pl)' },
         ]}
       />
     </Provider>

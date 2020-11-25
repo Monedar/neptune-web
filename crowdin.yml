@@ -1,5 +1,6 @@
 api_key_env: CROWDIN_KEY
 project_identifier: neptune-web-components
+commit_message: 'chore: new translations ✨'
 files:
   - source: packages/components/lang/en.json
     translation: /packages/components/lang/%two_letters_code%.%file_extension%

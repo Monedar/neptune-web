@@ -2,7 +2,7 @@ api_key_env: CROWDIN_KEY
 project_identifier: neptune-web-components
 files:
   - source: packages/components/lang/en.json
-    translation: packages/components/lang/%two_letters_code%.%file_extension%
+    translation: /src/packages/components/lang/%two_letters_code%.%file_extension%
     languages_mapping:
       two_letters_code:
         fr: fr

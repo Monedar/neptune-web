@@ -17,6 +17,8 @@
           { value: 'en', label: 'English (en)' },
           { value: 'fr', label: 'French (fr)' },
           { value: 'pl', label: 'Poland (pl)' },
+          { value: 'ja', label: 'Japan (ja)' },
+          { value: 'ru', label: 'Russian (ru)' },
         ]}
       />
     </Provider>

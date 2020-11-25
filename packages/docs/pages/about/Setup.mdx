@@ -30,13 +30,16 @@ import '@transferwise/neptune-css/dist/css/neptune.css';
 // This is only necessary if you are using the UMD build
 import '@transferwise/components/build/main.css';
 
-import { Button } from '@transferwise/components';
+import { Provider, Button } from '@transferwise/components';
 
-export default function Hello() {
+export default function App() {
   return (
-    <Button size={Button.Size.SMALL} block={true}>
-      Hello Neptune
-    </Button>
+    // Components should be wrapped by Provider component which init and provides context data for them
+    // usually this should be done once at the top level component
+    <Provider locale={currentLocale}>
+      ...
+      <Button size={Button.Size.SMALL} block>...</Button>
+    </Provider>
   );
 }
 ```

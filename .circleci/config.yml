@@ -96,11 +96,11 @@ jobs:
       - *persist-workspace
 
   visual-regression:
-  <<: *container
-  steps:
-    - *attach-workspace
-    - run: *visual-regression
-    - *persist-workspace
+    <<: *container
+    steps:
+      - *attach-workspace
+      - run: *visual-regression
+      - *persist-workspace
 
   deploy-docs:
     <<: *container
@@ -167,7 +167,7 @@ workflows:
                 - gh-pages
                 - main
 
-      - hold-visual-regression-for-branch:
+      - hold-visual-regression:
           type: approval
           requires:
             - test
@@ -178,9 +178,9 @@ workflows:
                 - gh-pages
                 - main
 
-      - visual-regression-for-branch:
+      - visual-regression:
           requires:
-            - hold-visual-regression-for-branch
+            - hold-visual-regression
           filters:
             branches:
               ignore:

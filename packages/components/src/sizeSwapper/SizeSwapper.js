@@ -16,11 +16,18 @@ const SizeSwapper = ({ items }) => {
 
   // If all breakpoints are specified and clientWidth never > breakpoint itemsToRender can be undefined.
   // Do not use deconstruct here to get items and layout.
-
   let itemsToRender = items;
+
   if (clientWidth) {
     // eslint-disable-next-line
     itemsToRender = items.filter(({ breakpoint = 0 }) => clientWidth >= breakpoint).slice(-1)[0];
+  } else {
+    itemsToRender.items = [];
+
+    // eslint-disable-next-line
+    itemsToRender.forEach(({ items }) => {
+      itemsToRender.items.push(...items);
+    });
   }
 
   // Always return parent container even if there are no items to display to

@@ -30,7 +30,7 @@ const SizeSwapper = ({ items }) => {
     });
   }
   const styleInit = {
-    height: 0,
+    height: 'auto',
     overflow: 'hidden',
     opacity: 0,
   };

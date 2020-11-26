@@ -29,6 +29,15 @@ const SizeSwapper = ({ items }) => {
       itemsToRender.items.push(...items);
     });
   }
+  const styleInit = {
+    height: 0,
+    overflow: 'hidden',
+  };
+
+  const styleAfter = {
+    height: 'auto',
+    overflow: 'visible',
+  };
 
   // Always return parent container even if there are no items to display to
   // keep the ref on DOM and let clientWidth be calculated properly.
@@ -37,7 +46,7 @@ const SizeSwapper = ({ items }) => {
       className={classNames('np-size-swapper d-flex', {
         'flex-column': itemsToRender && itemsToRender.layout === Layout.COLUMN,
       })}
-      style={{ visibility: clientWidth ? 'visible' : 'hidden' }}
+      style={clientWidth ? styleAfter : styleInit}
       ref={ref}
     >
       {itemsToRender && itemsToRender.items}

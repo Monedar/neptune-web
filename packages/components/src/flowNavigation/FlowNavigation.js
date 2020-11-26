@@ -31,10 +31,9 @@ const FlowNavigation = ({ avatar, stepper: { steps, activeStep }, onClose, onGoB
             backward={activeStep < prev}
           />
         }
-        className="visible-xs"
       />
     ) : (
-      <Logo type={Logo.Type.FLAG} className="visible-xs" />
+      <Logo type={Logo.Type.FLAG} />
     );
 
   return (
@@ -44,7 +43,7 @@ const FlowNavigation = ({ avatar, stepper: { steps, activeStep }, onClose, onGoB
       leftContent={
         <>
           <Logo type={Logo.Type.FULL} className="hidden-xs" />
-          {getMobileLeftContent()}
+          <div className="visible-xs"> {getMobileLeftContent()}</div>
         </>
       }
       rightContent={

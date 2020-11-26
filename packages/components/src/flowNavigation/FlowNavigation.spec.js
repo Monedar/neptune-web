@@ -5,6 +5,7 @@ import { screen } from '@testing-library/dom';
 
 import FlowNavigation from '.';
 import { Breakpoint } from '../common';
+import Logo from '../common/logo';
 
 jest.mock('lodash.throttle', () => jest.fn((fn) => fn));
 
@@ -18,9 +19,9 @@ jest.mock('./backButton', () => {
 });
 jest.mock('../common/logo', () => {
   // eslint-disable-next-line react/prop-types
-  const Logo = ({ className }) => <div className={className}>Logo</div>;
-  Logo.Type = { FULL: 'FULL', FLAG: 'FLAG' };
-  return Logo;
+  const mockedLogo = ({ className, type }) => <div className={className}>Logo {type}</div>;
+  mockedLogo.Type = { FULL: 'FULL', FLAG: 'FLAG' };
+  return mockedLogo;
 });
 
 describe('FlowNavigation', () => {
@@ -66,13 +67,12 @@ describe('FlowNavigation', () => {
     rerender(<FlowNavigation {...props} avatar={null} />);
     expect(container.querySelector('.separator')).not.toBeInTheDocument();
   });
-  describe('for mobile', () => {
+  describe('right for mobile', () => {
     beforeAll(() => {});
-    it(`renders Logo only if onGoBack is not provided and activeStep = 0`, () => {
+    it(`renders Logo ${Logo.Type.FLAG} if onGoBack is not provided and activeStep = 0`, () => {
       const { rerender } = render(<FlowNavigation {...props} />);
-      // Renders desktop and mobile Logo
-      expect(screen.getAllByText('Logo')).toHaveLength(2);
-      expect(screen.getAllByText('Logo')[1]).toHaveClass('visible-xs');
+
+      expect(screen.getByText(`Logo ${Logo.Type.FLAG}`).parentElement).toHaveClass('visible-xs');
 
       rerender(
         <FlowNavigation
@@ -84,7 +84,7 @@ describe('FlowNavigation', () => {
         />,
       );
 
-      expect(screen.getAllByText('Logo')[1]).toHaveClass('visible-xs');
+      expect(screen.getByText(`Logo ${Logo.Type.FLAG}`).parentElement).toHaveClass('visible-xs');
 
       rerender(
         <FlowNavigation
@@ -96,11 +96,11 @@ describe('FlowNavigation', () => {
           }}
         />,
       );
-      // Renders only desktop Logo
-      expect(screen.getAllByText('Logo')).toHaveLength(1);
+
+      expect(screen.queryByText(`Logo ${Logo.Type.FLAG}`)).not.toBeInTheDocument();
     });
 
-    it(`renders BackButton with AnimatedLabel only if onGoBack is provided and activeStep > 0`, () => {
+    it(`renders BackButton with AnimatedLabel if onGoBack is provided and activeStep > 0`, () => {
       const { rerender } = render(<FlowNavigation {...props} onGoBack={jest.fn()} />);
       expect(screen.queryByText('BackButton')).toBeNull();
 
@@ -126,15 +126,15 @@ describe('FlowNavigation', () => {
         />,
       );
 
-      expect(screen.getByText('BackButton')).toHaveClass('visible-xs');
+      expect(screen.getByText('BackButton').parentElement).toHaveClass('visible-xs');
       expect(screen.getByText('AnimatedLabel')).toBeInTheDocument();
     });
   });
-  describe(`renders as expected on mobile view`, () => {
+  describe(`on mobile`, () => {
     beforeEach(() => {
       resetClientWidth(Breakpoint.MEDIUM - 1);
     });
-    it('something', () => {
+    it('renders as expected', () => {
       expect(render(<FlowNavigation {...props} onGoBack={jest.fn()} />)).toMatchSnapshot();
     });
   });

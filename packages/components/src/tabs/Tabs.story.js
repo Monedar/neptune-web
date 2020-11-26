@@ -1,6 +1,5 @@
 import React from 'react';
 import Tabs from './Tabs';
-import Alert from '../alert';
 
 export default {
   component: Tabs,
@@ -19,27 +18,27 @@ export const basic = () => {
           title: 'Title 1',
           disabled: false,
           content: (
-            <Alert message="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum totam debitis similique" />
+            <div className="p-a-2">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum totam debitis similique
+            </div>
           ),
         },
         {
           title: 'Title 2',
           disabled: false,
           content: (
-            <Alert
-              type="warning"
-              message="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum totam debitis similique"
-            />
+            <div className="p-a-2">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum totam debitis similique
+            </div>
           ),
         },
         {
           title: 'Title 3',
           disabled: true,
           content: (
-            <Alert
-              type="negative"
-              message="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum totam debitis similique"
-            />
+            <div className="p-a-2">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum totam debitis similique
+            </div>
           ),
         },
       ]}
@@ -62,27 +61,27 @@ export const blockTabHeaderWidth = () => {
           title: 'Title 1',
           disabled: false,
           content: (
-            <Alert message="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum totam debitis similique" />
+            <div className="p-a-2">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum totam debitis similique
+            </div>
           ),
         },
         {
           title: 'Title 2',
           disabled: false,
           content: (
-            <Alert
-              type="warning"
-              message="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum totam debitis similique"
-            />
+            <div className="p-a-2">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum totam debitis similique
+            </div>
           ),
         },
         {
           title: 'Title 3',
           disabled: true,
           content: (
-            <Alert
-              type="negative"
-              message="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum totam debitis similique"
-            />
+            <div className="p-a-2">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum totam debitis similique
+            </div>
           ),
         },
       ]}

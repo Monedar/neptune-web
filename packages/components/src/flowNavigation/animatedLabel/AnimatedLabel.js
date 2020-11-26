@@ -28,11 +28,7 @@ const AnimatedLabel = ({ activeStep, backward, labels }) => {
 /* eslint-enable react/no-array-index-key */
 
 AnimatedLabel.propTypes = {
-  steps: Types.arrayOf(
-    Types.shape({
-      label: Types.node.isRequired,
-    }),
-  ).isRequired,
+  labels: Types.arrayOf(Types.node).isRequired,
   activeStep: Types.number.isRequired,
   backward: Types.bool,
 };

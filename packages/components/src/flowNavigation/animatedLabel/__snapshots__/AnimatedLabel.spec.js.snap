@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnimatedLabel renders label 1 1`] = `
+<div>
+  <div
+    aria-hidden="false"
+    class="np-animated-label"
+  >
+    label1
+  </div>
+</div>
+`;
+
+exports[`AnimatedLabel renders label 2 1`] = `
+<div>
+  <div
+    aria-hidden="false"
+    class="np-animated-label"
+  >
+    label2
+  </div>
+</div>
+`;
+
+exports[`AnimatedLabel renders no labels 1`] = `<div />`;

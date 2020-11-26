@@ -48,9 +48,10 @@ also, feel free to update tests of existing components (e.g when you do some cha
 
 # Internationalization
 
-This package has support for i18n.
+This package has support for i18n and all message inside components should be translated.
 
-Define your messages in file `.message.js` next to your component and then just use them in the component.
+Define messages via [`defineMessages`](https://formatjs.io/docs/react-intl/api/#definemessagesdefinemessage) function
+in `[ComponentName].message.js` file next to component file and import them use in the component file.
 
 Later once you define all message(s) and agreed on copies, send them to translations vendor (Crowdin):
  

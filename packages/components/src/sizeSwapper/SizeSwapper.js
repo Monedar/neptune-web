@@ -37,6 +37,7 @@ const SizeSwapper = ({ items }) => {
       className={classNames('np-size-swapper d-flex', {
         'flex-column': itemsToRender && itemsToRender.layout === Layout.COLUMN,
       })}
+      style={{ visibility: clientWidth ? 'visible' : 'hidden' }}
       ref={ref}
     >
       {itemsToRender && itemsToRender.items}

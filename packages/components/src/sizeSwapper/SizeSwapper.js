@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import Types from 'prop-types';
 import classNames from 'classnames';
-import { isMobile } from 'react-device-detect';
 
 import { Breakpoint } from '../common';
 import useClientWidth from './hooks';
@@ -14,12 +13,12 @@ const SizeSwapper = ({ items }) => {
   }
   const ref = useRef(null);
   const [clientWidth] = useClientWidth({ ref });
-  const ssrClientWidth = clientWidth || (isMobile ? Breakpoint.MEDIUM : Breakpoint.MEDIUM);
+
   // If all breakpoints are specified and clientWidth never > breakpoint itemsToRender can be undefined.
   // Do not use deconstruct here to get items and layout.
   let itemsToRender = items;
 
-  if (ssrClientWidth) {
+  if (clientWidth) {
     // eslint-disable-next-line
     itemsToRender = items.filter(({ breakpoint = 0 }) => clientWidth >= breakpoint).slice(-1)[0];
   } else {
@@ -30,6 +29,17 @@ const SizeSwapper = ({ items }) => {
       itemsToRender.items.push(...items);
     });
   }
+  const styleInit = {
+    height: 0,
+    overflow: 'hidden',
+    opacity: 0,
+  };
+
+  const styleAfter = {
+    height: 'auto',
+    overflow: 'visible',
+    opacity: 1,
+  };
 
   // Always return parent container even if there are no items to display to
   // keep the ref on DOM and let clientWidth be calculated properly.
@@ -38,6 +48,7 @@ const SizeSwapper = ({ items }) => {
       className={classNames('np-size-swapper d-flex', {
         'flex-column': itemsToRender && itemsToRender.layout === Layout.COLUMN,
       })}
+      style={clientWidth ? styleAfter : styleInit}
       ref={ref}
     >
       {itemsToRender && itemsToRender.items}

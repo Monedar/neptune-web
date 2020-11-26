@@ -31,13 +31,11 @@ const SizeSwapper = ({ items }) => {
   }
   const styleInit = {
     height: 'auto',
-
     opacity: 0,
   };
 
   const styleAfter = {
     height: 'auto',
-
     opacity: 1,
   };
 

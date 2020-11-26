@@ -91,6 +91,7 @@
     "lodash.difference": "^4.5.0",
     "lodash.throttle": "^4.1.1",
     "lodash.topairs": "^4.3.0",
+    "react-device-detect": "^1.14.0",
     "react-required-if": "^1.0.3",
     "react-spring": "^8.0.27",
     "react-transition-group": "^4.2.1"

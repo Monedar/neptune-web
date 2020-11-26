@@ -24,7 +24,7 @@ exports[`Header renders as expected 1`] = `
 </div>
 `;
 
-exports[`Header renders as expected for vertical layout 1`] = `
+exports[`Header renders as expected with vertical layout 1`] = `
 <div>
   <div
     class="np-header d-flex flex-wrap className"

@@ -5,11 +5,16 @@ import { Theme } from '..';
 import './Logo.css';
 
 const Logo = ({ className, theme, type }) => {
-  let baseClass = ['logo', 'logo-3', 'logo-primary'];
+  let baseClass;
   if (type === Logo.Type.FLAG) {
     baseClass = ['flag', 'flag-info'];
-  } else if (theme === Logo.Theme.DARK) {
-    baseClass.splice(2, 1, 'logo-inverse');
+  } else {
+    baseClass = ['logo', 'logo-3'];
+    if (theme === Logo.Theme.DARK) {
+      baseClass.push('logo-inverse');
+    } else {
+      baseClass.push('logo-primary');
+    }
   }
   return <div className={classNames('np-logo', baseClass, className)} />;
 };

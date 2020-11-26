@@ -11,7 +11,7 @@
     "docs": "yarn dev",
     "build": "npm-run-all build:*",
     "build:compile-css": "gulp compileLess --src='static/assets' --dest='static/assets'",
-    "build:docs-gen": "node ./docgen.js && node ./utils/bundleSize/getBundleSize.js",
+    "build:docs-gen": "node ./docgen.js",
     "build:next": "next build",
     "docs:deploy": "npm-run-all deploy:*",
     "deploy:export": "next export -o docs-build && touch docs-build/.nojekyll",

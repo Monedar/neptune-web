@@ -14,7 +14,7 @@ module.exports = {
     },
     'postcss-custom-media': {
       stage: 1,
-      importFrom: '../../packages/css/src/props/custom-media.css',
+      importFrom: '../../node_modules/@transferwise/neptune-css/src/props/custom-media.css',
     },
     cssnano: {
       preset: 'default',

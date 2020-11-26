@@ -5,8 +5,6 @@ import Link from './Link';
 
 import { getFirstPageInSection, getPageFromPath } from '../utils/pageUtils';
 import sections from '../utils/sections';
-
-import Sidebar from './Sidebar';
 import ThreeColumnLayout from './layout/threeColumnLayout';
 
 const githubURL = `https://github.com/transferwise/neptune-web/edit/main/packages/docs/pages`;
@@ -45,9 +43,7 @@ const Layout = ({ children, router: { pathname } }) => {
     </div>
   );
 
-  const secondContent = page && (
-    <Sidebar section={sections.find((section) => section.dir === rootDir)} />
-  );
+  const secondContent = page && <></>;
 
   const thirdContent = (
     <div className="Content" role="main">

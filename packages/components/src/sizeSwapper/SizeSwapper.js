@@ -37,7 +37,7 @@ const SizeSwapper = ({ items }) => {
       className={classNames('np-size-swapper d-flex', {
         'flex-column': itemsToRender && itemsToRender.layout === Layout.COLUMN,
       })}
-      style={{ transition: 'opacity 0.4s linear 0.2s', opacity: clientWidth ? 1 : 0 }}
+      style={{ transition: 'opacity 0.2s linear 0.2s', opacity: clientWidth ? 1 : 0 }}
       ref={ref}
     >
       {itemsToRender && itemsToRender.items}

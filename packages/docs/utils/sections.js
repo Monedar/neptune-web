@@ -16,81 +16,14 @@
  */
 export default [
   {
-    title: 'Getting started',
-    dir: 'about',
-    fileOrder: ['Home', 'Setup', 'Styles', 'BrowserSupport', 'Versioning', 'Contributing'],
-  },
-  {
-    title: 'Styles',
-    dir: 'styles',
-    children: [
-      {
-        title: 'Core',
-        dir: 'styles/core',
-        fileOrder: ['Typography'],
-      },
-      {
-        title: 'Addons',
-        dir: 'styles/addons',
-        fileOrder: ['BackgroundUtilities', 'DisplayUtilities', 'SpacingUtilities'],
-      },
-      {
-        title: 'Tokens',
-        dir: 'styles/tokens',
-        fileOrder: ['Colors', 'Sizes', 'Breakpoints'],
-      },
-    ],
-  },
-  {
     title: 'Components',
     dir: 'components',
     children: [
       {
-        title: 'Inputs',
-        dir: 'components/inputs',
-      },
-      {
-        title: 'Content',
-        dir: 'components/content',
-      },
-      {
-        title: 'Options',
-        dir: 'components/options',
-      },
-      {
-        title: 'Alerts / Info',
-        dir: 'components/alerts',
-      },
-      {
         title: 'Navigation',
         dir: 'components/navigation',
       },
-      {
-        title: 'Progress',
-        dir: 'components/progress',
-      },
-      {
-        title: 'Overlays',
-        dir: 'components/overlays',
-      },
-      {
-        title: 'Dynamic Forms',
-        dir: 'components/dynamicForms',
-      },
-      {
-        title: 'Internal Components',
-        dir: 'components/internal',
-      },
     ],
     searchable: true,
-  },
-  {
-    title: 'Devs',
-    dir: 'devs',
-    hidden: true,
-  },
-  {
-    title: 'Lab',
-    dir: 'lab',
   },
 ];

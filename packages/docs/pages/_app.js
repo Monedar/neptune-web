@@ -10,8 +10,6 @@ import '@transferwise/neptune-css/dist/css/neptune.css';
 import '@transferwise/icons/lib/styles/main.min.css';
 import 'currency-flags/dist/currency-flags.min.css';
 
-import { addBasePath } from '../utils/pageUtils';
-
 import '../static/assets/main.css';
 
 if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined') {
@@ -24,7 +22,7 @@ class MyApp extends App {
   componentDidMount() {
     const { pathname } = Router;
     if (pathname === '/' || pathname === '/_error') {
-      Router.push(addBasePath('about/Home'));
+      // Router.push(addBasePath('about/Home'));
     }
   }
 

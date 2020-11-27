@@ -9,7 +9,7 @@ import Logo from '../common/logo';
 
 jest.mock('lodash.throttle', () => jest.fn((fn) => fn));
 
-jest.mock('./AnimatedLabel', () => {
+jest.mock('./animatedLabel', () => {
   // eslint-disable-next-line react/prop-types
   return ({ className }) => <div className={className}>AnimatedLabel</div>;
 });

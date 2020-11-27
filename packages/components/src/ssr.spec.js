@@ -20,6 +20,9 @@ describe('Server side rendering', () => {
   const allProps = {
     currencies: [],
     steps: [],
+    stepper: {
+      steps: [],
+    },
     items: [],
     children: 'yo',
     id: '1',
